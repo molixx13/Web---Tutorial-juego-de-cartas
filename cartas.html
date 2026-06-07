@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Cartas (cartas.html)
+  
+  Estructura de secciones:
+    1. <header>  — Navegación global (CARTAS activo → fondo #B2296F)
+    2. .cartas-hero    — Imagen de fondo + título "CARTAS"
+    3. .cartas-explicacion  — Banda "EXPLICACIÓN DE CARTAS"
+    4. .cartas-descripcion  — Texto introductorio
+    5. Secciones alternadas de tipos de cartas (6 tipos):
+         Cartas de personaje / Objetos únicos / Objetos de tienda /
+         Cartas de botín / Cartas de enemigos / Cartas de rituales
+    6. <footer>  — Links legales
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Cartas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — Navegación global
+       JS asigna automáticamente "activo" a #nav-cartas
+       → fondo #B2296F sobre el botón "CARTAS"
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="Fondos/DREAM_FORGE.png"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="MANUAL.pdf" download>MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <i class="fas fa-search"></i>
+      </button>
+      <button aria-label="Mi cuenta">
+        <i class="fas fa-user"></i>
+      </button>
+      <button aria-label="Carrito">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de Cartas
+       Imagen de fondo (silhouettes / atardecer) del Figma.
+       Overlay semitransparente + título "CARTAS".
+  ══════════════════════════════════════════════════════ -->
+  <section class="cartas-hero" aria-label="Hero página Cartas">
+    <!-- Imagen de fondo -->
+    <img
+      class="cartas-hero__imagen"
+      src="Fondos/Imagen_cartas.png"
+      alt="Siluetas — escena de cartas"
+    />
+
+    <!-- Overlay con el título -->
+    <div class="cartas-hero__overlay">
+      <h1 class="cartas-hero__titulo fade-in">C A R T A S</h1>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — BANDA "EXPLICACIÓN DE CARTAS"
+       Fondo azul oscuro (#2F455C). Tipografía Koulen en blanco.
+  ══════════════════════════════════════════════════════ -->
+  <div class="cartas-explicacion">
+    <h2 class="cartas-explicacion__titulo">EXPLICACIÓN DE CARTAS</h2>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — TEXTO DESCRIPTIVO
+       Sobre fondo gris. Descripción general del sistema de cartas.
+  ══════════════════════════════════════════════════════ -->
+  <div class="cartas-descripcion animar">
+    <p>
+      <strong>Explicación de cartas:</strong>
+      ECOS: Umbral de los Eternos es un juego inspirado en las culturas indígenas colombianas donde el objetivo es ser el primero en obtener 4 Puntos de Bendición, principalmente derrotando jefes. La partida utiliza diversos tipos de cartas (personajes, objetos, rituales), dados y Atunes como moneda. El sistema de juego destaca la activación de cartas (personajes y objetos activos), las cuales se giran 90° para usar su efecto y se recargan generalmente al inicio del siguiente turno, quedando inhabilitadas mientras permanezcan giradas.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIONES DE TIPOS DE CARTA
+       Alternan: panel texto (oscuro) | panel imágenes (claro)
+       y viceversa con la clase "tipo-carta--invertido".
+       
+       Tipos:
+         1. Personajes
+         2. Objetos únicos      (invertido)
+         3. Objetos de tienda
+         4. Objetos de botín    (invertido)
+         5. Enemigos
+         6. Rituales            (invertido)
+  ══════════════════════════════════════════════════════ -->
+
+  <!-- ── Tipo 1: Personajes ── -->
+  <section class="tipo-carta animar" aria-label="Cartas de personaje">
+
+    <!-- Panel izquierdo — nombre y descripción (fondo oscuro) -->
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Cartas de personaje</h3>
+      <p class="tipo-carta__texto">Cada jugador controla un personaje.</p>
+      <p class="tipo-carta__subtitulo">Los personajes poseen:</p>
+      <ul class="tipo-carta__lista">
+        <li>Puntos de vida</li>
+        <li>Daño</li>
+        <li>Posibles habilidades pasivas</li>
+        <li>Un objeto único asociado</li>
+      </ul>
+      <p class="tipo-carta__texto">
+        Los personajes no se eligen directamente, se seleccionan de manera aleatoria al inicio de la partida.
+      </p>
+    </div>
+
+    <!-- Panel derecho — imágenes de cartas de ejemplo -->
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/Carta%20personaje%201.jpeg"
+        alt="Carta personaje 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/Carta%20personaje%202.jpeg"
+        alt="Carta personaje 2"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 2: Objetos únicos (invertido) ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Tipo de carta: Objetos únicos">
+
+    <!-- Panel con imágenes (orden visual: izquierda) -->
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/Objetos%20unicos%201.jpeg"
+        alt="Objeto único 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/objetos%20unicos%202.jpeg"
+        alt="Objeto único 2"
+      />
+    </div>
+
+    <!-- Panel con texto (orden visual: derecha) -->
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Objetos únicos</h3>
+      <p class="tipo-carta__texto">
+        Cada personaje tiene un objeto único con la categoría ETERNO.
+      </p>
+      <p class="tipo-carta__subtitulo">Un objeto eterno tiene las siguientes reglas:</p>
+      <ul class="tipo-carta__lista">
+        <li>No puede perderse</li>
+        <li>No puede intercambiarse</li>
+        <li>No puede regalarse</li>
+        <li>Solo puede ser utilizado por su personaje correspondiente</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 3: Objetos de tienda ── -->
+  <section class="tipo-carta animar" aria-label="Tipo de carta: Objetos de tienda">
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Objetos de tienda</h3>
+      <p class="tipo-carta__texto">
+        Las cartas de objetos se obtienen en la tienda por 10 Atunes o como equipo inicial, y deben colocarse visibles junto al personaje sin límite de cantidad. Se dividen en tres tipos: pasivos, que funcionan permanentemente; activos, que se giran 90° al usarse y se recargan al iniciar el siguiente turno; y de paga, que operan como los activos pero requieren un gasto adicional de recursos o Atunes para su ejecución.
+      </p>
+    </div>
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/objetos%20tienda%201.jpeg"
+        alt="Objeto de tienda 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/objetos%20tienda%202.jpeg"
+        alt="Objeto de tienda 2"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 4: Objetos de botín (invertido) — nomenclatura del ESQUEMA ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Cartas de botín">
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20botin%201.jpeg"
+        alt="Carta de botín 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20botin%202.jpeg"
+        alt="Carta de botín 2"
+      />
+    </div>
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Cartas de botín</h3>
+      <p class="tipo-carta__texto">
+        Las cartas de botín representan ayudas rápidas que pueden utilizarse durante la partida.
+      </p>
+      <p class="tipo-carta__subtitulo">Se obtienen:</p>
+      <ul class="tipo-carta__lista">
+        <li>Al inicio del turno</li>
+        <li>Como recompensas de enemigos</li>
+      </ul>
+      <p class="tipo-carta__subtitulo">Reglas de uso:</p>
+      <ul class="tipo-carta__lista">
+        <li>Un jugador puede usar una carta de botín por turno.</li>
+        <li>Si el jugador activa su personaje, puede usar una carta de botín adicional ese turno.</li>
+        <li>No existe límite de cartas de botín que un jugador pueda tener.</li>
+        <li>Si el mazo de botín se queda sin cartas, se deben tomar todas las cartas de botín utilizadas, barajarlas nuevamente y formar un nuevo mazo.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 5: Enemigos ── -->
+  <section class="tipo-carta animar" aria-label="Cartas de enemigos">
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Cartas de enemigos</h3>
+      <p class="tipo-carta__texto">
+        Los enemigos son los desafíos centrales del juego y siempre debe haber dos activos en la zona correspondiente, reponiéndose del mazo —o del descarte barajado si este se agota— al ser derrotados. Cada uno posee Vida, que se reduce con ataques exitosos; Evasión, que determina el número mínimo a obtener en el dado para acertar; y Daño, que el jugador recibe automáticamente si su ataque falla. Cabe destacar que los jugadores no pueden atacarse entre sí ni poseen un valor de evasión propio.
+      </p>
+    </div>
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20enemigos%201.jpeg"
+        alt="Carta de enemigo 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20enemigos%202.jpeg"
+        alt="Carta de enemigo 2"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 6: Rituales (invertido) ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Cartas de rituales">
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20rituales%201.jpeg"
+        alt="Carta de ritual 1"
+      />
+      <img
+        class="tipo-carta__img"
+        src="CARTAS/cartas%20de%20rituales%202.jpeg"
+        alt="Carta de ritual 2"
+      />
+    </div>
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre tipo-carta__nombre--largo">Cartas de rituales</h3>
+      <p class="tipo-carta__texto">
+        Las cartas de rituales generan efectos que afectan la partida.
+      </p>
+      <p class="tipo-carta__subtitulo">Reglas:</p>
+      <ul class="tipo-carta__lista">
+        <li>Solo puede haber un ritual activo a la vez.</li>
+        <li>El ritual permanece activo hasta que un jugador decida cambiarlo al final de su turno.</li>
+        <li>Cambiar el ritual es opcional.</li>
+      </ul>
+      <p class="tipo-carta__texto">
+        Se recomienda utilizar estas cartas solo cuando los jugadores ya entienden bien el juego.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Todos los derechos reservados©️ 2026</a>
+
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

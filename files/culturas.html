@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Culturas (culturas.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (CULTURAS activo)
+    2. .cultura-hero  — Dos paneles: imagen izquierda + fondo crema derecha
+    3. .cultura-nav   — Botones "CONÓCENOS" Nukak / Sikuani
+    4. #nukak         — Contenido detallado de la cultura Nukak
+    5. #sikuani       — Contenido detallado de la cultura Sikuani
+    6. <footer>
+    
+  Nota de color:
+    Los títulos de sección "creencias" y "características" usaban
+    #B2296F → ahora usan --amarillo (#FFDC4A).
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Culturas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-culturas
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="https://www.figma.com/api/mcp/asset/709fed35-f489-4443-a794-6ffad1bfad14"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/drive/folders/1aFhP5xda_X0VcE0jvxz1ZZw9O-VDDXZF?usp=drive_link" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img src="https://www.figma.com/api/mcp/asset/d0a17934-c824-4294-9baf-b1ce5fec9df4" alt="Buscar" />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img src="https://www.figma.com/api/mcp/asset/3e64e5b0-0a5e-488f-ac11-7d9508e193a9" alt="Cuenta" />
+      </button>
+      <button aria-label="Carrito">
+        <img src="https://www.figma.com/api/mcp/asset/c3ba4121-0142-469e-92d6-dd1bf4746853" alt="Carrito" />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de Culturas
+       Dos paneles lado a lado:
+         ▸ Izquierda: fondo #FFDC4A (era imagen en Figma) — título CULTURAS
+         ▸ Derecha: fondo crema con imagen/texto
+  ══════════════════════════════════════════════════════ -->
+  <section class="cultura-hero" aria-label="Hero página Culturas">
+
+    <!-- Panel izquierdo: color amarillo de fondo + título grande -->
+    <div class="cultura-hero__panel cultura-hero__panel--izq">
+      <h1 class="cultura-hero__titulo fade-in">CULTURAS</h1>
+    </div>
+
+    <!-- Panel derecho: crema con el texto CONÓCENOS -->
+    <div class="cultura-hero__panel cultura-hero__panel--der">
+      <div>
+        <p style="font-family: var(--font-cuerpo); font-size: 18px; font-weight: 700; color: var(--azul-oscuro); letter-spacing: 4px; text-align: right;">
+          CONÓCENOS ›
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — NAVEGACIÓN DE CULTURAS
+       Botones para alternar entre Nukak y Sikuani.
+       JS activa/desactiva la clase "activo-cultura".
+  ══════════════════════════════════════════════════════ -->
+  <nav class="cultura-nav" aria-label="Selección de cultura">
+    <!-- data-cultura apunta al id del bloque de contenido -->
+    <button class="cultura-nav__btn" data-cultura="nukak" aria-controls="nukak">
+      NUKAK
+    </button>
+    <button class="cultura-nav__btn" data-cultura="sikuani" aria-controls="sikuani">
+      SIKUANI
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3A — CONTENIDO NUKAK
+       Visible/oculto por JS según el botón seleccionado.
+  ══════════════════════════════════════════════════════ -->
+  <div id="nukak" class="cultura-contenido-bloque" aria-label="Cultura Nukak">
+
+    <!-- Banda con nombre de la cultura — fondo amarillo (era #B2296F) -->
+    <div style="background-color: var(--amarillo); padding: 20px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-titulo); font-size: clamp(40px, 6vw, 96px); letter-spacing: 25px; color: var(--azul-oscuro);">
+        N U K A K
+      </h2>
+    </div>
+
+    <!-- Imagen principal de la cultura -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px; text-align: center; min-height: 510px; display: flex; align-items: center; justify-content: center;">
+      <div style="background-color: var(--gris); width: 100%; max-width: 635px; height: 279px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+        <p style="color: var(--azul-oscuro); font-size: 20px; font-weight: 600;">[Imagen de la cultura Nukak]</p>
+      </div>
+    </div>
+
+    <!-- Descripción general de la cultura -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px 80px;">
+      <p style="font-size: clamp(14px, 1.5vw, 20px); color: var(--crema); line-height: 1.8; text-align: justify; max-width: 1100px; margin: 0 auto;">
+        Aut inventore ratione eos quia nulla aut vitae dolores qui ullam optio qui
+        maxime laborum ea fugit dolor qui similique architecto? Est accusamus quia
+        cum dolorem necessitatibus aut inventore veritatis eos dicta repudiandae est
+        quod amet in ratione quos rem eaque suscipit? Ab porro repellendus eum quis
+        voluptates ex odit accusamus non consequatur dolorem id beatae aliquid est
+        illum delectus. A nesciunt officia non nisi suscipit ut voluptas voluptate
+        quo aliquid sint. Aut inventore ratione eos quia nulla aut vitae dolores
+        qui ullam optio qui maxime laborum ea fugit dolor. Rhoncus viverra mattis
+        id mus morbi dignissim cras ridiculus sem, odio gravida malesuada.
+      </p>
+    </div>
+
+    <!-- Bloques: Creencias + Características (lado a lado) -->
+    <div class="cultura-bloques animar">
+
+      <!-- Bloque Creencias — fondo claro -->
+      <div class="cultura-bloque cultura-bloque--claro">
+        <!-- Título del bloque: fondo amarillo (era #B2296F) -->
+        <div class="cultura-bloque__titulo animar">CREENCIAS</div>
+
+        <!-- Imagen de creencias (placeholder) -->
+        <div style="background-color: var(--gris); width: 100%; min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 16px 0;">
+          <p style="color: var(--azul-oscuro); font-weight: 600;">[Imagen creencias Nukak]</p>
+        </div>
+
+        <p class="cultura-bloque__texto">
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but
+          also the leap into electronic typesetting.
+        </p>
+      </div>
+
+      <!-- Bloque Características — fondo oscuro -->
+      <div class="cultura-bloque cultura-bloque--oscuro">
+        <!-- Título del bloque: fondo amarillo (era #B2296F) -->
+        <div class="cultura-bloque__titulo animar">CARACTERÍSTICAS</div>
+
+        <!-- Imagen de características (placeholder) -->
+        <div style="background-color: var(--gris); width: 100%; min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 16px 0;">
+          <p style="color: var(--azul-oscuro); font-weight: 600;">[Imagen características Nukak]</p>
+        </div>
+
+        <p class="cultura-bloque__texto" style="color: var(--crema);">
+          Em Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it to
+          make a type specimen book. It has survived not only five centuries, but
+          also the leap into electronic typesetting.
+        </p>
+      </div>
+    </div>
+  </div><!-- /nukak -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3B — CONTENIDO SIKUANI
+       Oculto por defecto. JS lo muestra al clic en el botón.
+       Misma estructura que Nukak.
+  ══════════════════════════════════════════════════════ -->
+  <div id="sikuani" class="cultura-contenido-bloque" style="display:none;" aria-label="Cultura Sikuani">
+
+    <!-- Banda con nombre de la cultura -->
+    <div style="background-color: var(--amarillo); padding: 20px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-titulo); font-size: clamp(40px, 6vw, 96px); letter-spacing: 25px; color: var(--azul-oscuro);">
+        S I K U A N I
+      </h2>
+    </div>
+
+    <!-- Imagen principal -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px; text-align: center; min-height: 510px; display: flex; align-items: center; justify-content: center;">
+      <div style="background-color: var(--gris); width: 100%; max-width: 635px; height: 279px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+        <p style="color: var(--azul-oscuro); font-size: 20px; font-weight: 600;">[Imagen de la cultura Sikuani]</p>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px 80px;">
+      <p style="font-size: clamp(14px, 1.5vw, 20px); color: var(--crema); line-height: 1.8; text-align: justify; max-width: 1100px; margin: 0 auto;">
+        Aut inventore ratione eos quia nulla aut vitae dolores qui ullam optio qui
+        maxime laborum ea fugit dolor qui similique architecto? Est accusamus quia
+        cum dolorem necessitatibus aut inventore veritatis eos dicta repudiandae
+        est quod amet in ratione quos rem eaque suscipit? Ab porro repellendus eum
+        quis voluptates ex odit accusamus non consequatur dolorem id beatae aliquid
+        est illum delectus. Sikuani: pueblo de los llanos orientales colombianos,
+        con una rica tradición oral, espiritual y artesanal.
+      </p>
+    </div>
+
+    <!-- Bloques: Creencias + Características -->
+    <div class="cultura-bloques">
+
+      <div class="cultura-bloque cultura-bloque--claro">
+        <div class="cultura-bloque__titulo">CREENCIAS</div>
+        <div style="background-color: var(--gris); width: 100%; min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 16px 0;">
+          <p style="color: var(--azul-oscuro); font-weight: 600;">[Imagen creencias Sikuani]</p>
+        </div>
+        <p class="cultura-bloque__texto">
+          Lorem Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it.
+        </p>
+      </div>
+
+      <div class="cultura-bloque cultura-bloque--oscuro">
+        <div class="cultura-bloque__titulo">CARACTERÍSTICAS</div>
+        <div style="background-color: var(--gris); width: 100%; min-height: 300px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin: 16px 0;">
+          <p style="color: var(--azul-oscuro); font-weight: 600;">[Imagen características Sikuani]</p>
+        </div>
+        <p class="cultura-bloque__texto" style="color: var(--crema);">
+          Em Ipsum has been the industry's standard dummy text ever since the
+          1500s, when an unknown printer took a galley of type and scrambled it.
+        </p>
+      </div>
+    </div>
+  </div><!-- /sikuani -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    /**
+     * Leer el parámetro ?cultura=nukak/sikuani de la URL
+     * y activar automáticamente la pestaña correspondiente.
+     * Útil cuando se llega desde los paneles del index.html.
+     */
+    (function activarDesdeURL() {
+      const params   = new URLSearchParams(window.location.search);
+      const cultura  = params.get('cultura'); // "nukak" o "sikuani"
+      const btnTarget = document.querySelector('[data-cultura="' + cultura + '"]');
+      if (btnTarget) {
+        btnTarget.click();
+      }
+    })();
+  </script>
+</body>
+</html>

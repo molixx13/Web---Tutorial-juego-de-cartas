@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Instrucciones (instrucciones.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (JUEGO activo)
+    2. .inst-hero     — Hero con imagen de fondo + botón INSTRUCCIONES
+    3. .inst-descripcion — Descripción del juego (fondo azul)
+    4. .inst-elige-rol   — Banda amarilla "ELIGE TU ROL"
+    5. Cultura Sikuani   — Banda + grid de roles + texto
+    6. Cultura Nukak     — Banda + grid de roles + texto
+    7. <footer>
+    
+  Modificación de color:
+    Las bandas de cultura eran #B2296F en Figma.
+    Ahora usan --amarillo (#FFDC4A) según el requisito.
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Instrucciones del Juego</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* Texto descriptivo del rol seleccionado */
+    .inst-texto-panel {
+      background-color: var(--azul-oscuro);
+      padding: 32px 60px;
+      text-align: center;
+      font-size: clamp(14px, 1.5vw, 20px);
+      color: var(--blanco);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+
+    /* Texto descriptivo del rol dentro del panel de roles */
+    .inst-texto-panel-rol {
+      background-color: var(--azul-oscuro);
+      padding: 20px;
+      margin-top: 16px;
+      border-radius: 8px;
+      font-size: clamp(12px, 1.2vw, 16px);
+      color: var(--blanco);
+      font-weight: 500;
+      line-height: 1.6;
+    }
+    .inst-texto-panel-rol p {
+      margin-bottom: 12px;
+    }
+    .inst-texto-panel-rol p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Wrapper para cada rol con desplegable */
+    .inst-rol-wrapper {
+      margin-bottom: 8px;
+    }
+
+    /* Ajustar el layout del rol-item para los botones */
+    .inst-rol-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .inst-rol-item .inst-rol-item__flecha {
+      margin-right: 8px;
+    }
+    .inst-rol-item .inst-rol-item__nombre {
+      flex: 1;
+    }
+
+    /* Contenedor de botones de acción */
+    .inst-rol-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    /* Botones de acción en roles */
+    .inst-rol-audio-btn {
+      background: transparent;
+      border: none;
+      color: var(--blanco);
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 14px;
+    }
+    .inst-rol-audio-btn:hover {
+      opacity: 0.8;
+    }
+
+    /* Botón desplegable */
+    .inst-rol-toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--blanco);
+      cursor: pointer;
+      padding: 4px 8px;
+      font-size: 14px;
+      transition: transform 0.2s ease;
+    }
+    .inst-rol-toggle-btn:hover {
+      opacity: 0.8;
+    }
+    .inst-rol-toggle-btn i {
+      transition: transform 0.3s ease;
+    }
+
+    /* Descripción desplegable del rol */
+    .inst-rol-descripcion {
+      background-color: var(--azul-oscuro);
+      padding: 16px 20px;
+      margin-top: 4px;
+      border-radius: 8px;
+      font-size: clamp(11px, 1.1vw, 14px);
+      color: var(--blanco);
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    .inst-rol-descripcion p {
+      margin-bottom: 10px;
+    }
+    .inst-rol-descripcion p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER
+       JS marca "activo" en #nav-instrucciones → fondo #B2296F
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="Fondos/DREAM_FORGE.png"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="../MANUAL.pdf" download>MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <i class="fas fa-search"></i>
+      </button>
+      <button aria-label="Mi cuenta">
+        <i class="fas fa-user"></i>
+      </button>
+      <button aria-label="Carrito">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO con imagen de fondo
+       Imagen: mesa de juego con cartas (Rectangle 31 del Figma).
+       Superpone el título "JUEGO" y el botón "INSTRUCCIONES".
+  ══════════════════════════════════════════════════════ -->
+  <section class="inst-hero" aria-label="Hero instrucciones">
+
+    <!-- Imagen de fondo de la sección -->
+    <img
+      class="inst-hero__imagen"
+      src="Fondos/Imagen_juego.png"
+      alt="Mesa de juego con cartas"
+    />
+
+    <!-- Contenido superpuesto -->
+    <div class="inst-hero__contenido">
+      <!-- Título del juego sobre el hero -->
+      <h1 class="inst-titulo-juego fade-in">J U E G O</h1>
+
+      <!-- Botón "INSTRUCCIONES" — fondo amarillo (#FFDC4A) -->
+      <button class="inst-btn-instrucciones fade-in" aria-label="Ver instrucciones">
+        INSTRUCCIONES
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — DESCRIPCIÓN DEL JUEGO
+       Fondo azul oscuro. Texto explicativo del juego.
+  ══════════════════════════════════════════════════════ -->
+  <div class="inst-descripcion animar">
+    <h2 class="inst-descripcion__titulo">ECOS: UMBRAL DE LOS ETERNOS</h2>
+    <div class="inst-descripcion__texto">
+      <p>
+        For generations, the Sikuani and Nukak peoples coexisted in the same territory—between the Amazon rainforest and the eastern savannas—maintaining a distant peace. They were neither enemies nor allies; they shared the space without truly uniting their traditions or their spirits.
+      </p>
+      <p>
+        This fragile harmony shatters when ancient spirits, corrupted and forgotten due to the breach of the sacred pact between humans and the jungle, awaken and begin to manifest as destructive forces. Creatures like Dawa, Yuru, Dark Tsamani, and Kénau emerge as a consequence of the forgotten rites, songs, and promises made to nature.
+      </p>
+      <p>
+        The jungle begins to deteriorate, and both peoples understand that the true source of the disaster is not the jungle itself, but the rupture of the spiritual bond that kept it in balance.
+      </p>
+      <p>
+        Forced by the threat, the Sikuani and Nukak must decide whether to put aside their differences to restore the ancient pact or remain separate and allow their home to disappear.
+      </p>
+    </div>
+
+    <!-- Botón de reproducción de audio -->
+    <button type="button" id="btn-audio-intro" class="inst-audio-intro-btn" aria-label="Reproducir audio" title="Reproducir audio">
+      <i class="fas fa-play" id="icon-audio-intro" aria-hidden="true"></i>
+    </button>
+    <audio id="audio-intro" src="Audios/ECO_INTRO.MP3" preload="auto"></audio>
+
+    <script>
+      (function() {
+        const audio = document.getElementById('audio-intro');
+        const btn = document.getElementById('btn-audio-intro');
+        const icon = document.getElementById('icon-audio-intro');
+
+        function updateIcon() {
+          if (audio.ended) {
+            icon.className = 'fas fa-rotate-left';
+            btn.setAttribute('aria-label', 'Reiniciar audio');
+            btn.setAttribute('title', 'Reiniciar audio');
+          } else if (audio.paused) {
+            icon.className = 'fas fa-play';
+            btn.setAttribute('aria-label', 'Reproducir audio');
+            btn.setAttribute('title', 'Reproducir audio');
+          } else {
+            icon.className = 'fas fa-pause';
+            btn.setAttribute('aria-label', 'Pausar audio');
+            btn.setAttribute('title', 'Pausar audio');
+          }
+        }
+
+        btn.addEventListener('click', function() {
+          if (audio.ended) {
+            audio.currentTime = 0;
+            audio.play();
+          } else if (audio.paused) {
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        });
+
+        audio.addEventListener('play', updateIcon);
+        audio.addEventListener('pause', updateIcon);
+        audio.addEventListener('ended', updateIcon);
+      })();
+
+      // Funcionalidad para botones desplegables de roles
+      (function() {
+        document.querySelectorAll('.inst-rol-wrapper').forEach(function(wrapper) {
+          const toggleBtn = wrapper.querySelector('.inst-rol-toggle-btn');
+          const descripcion = wrapper.querySelector('.inst-rol-descripcion');
+          const icon = toggleBtn ? toggleBtn.querySelector('i') : null;
+
+          if (toggleBtn && descripcion) {
+            toggleBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              const isVisible = descripcion.style.display !== 'none';
+
+              // Cerrar todos los otros desplegables primero
+              document.querySelectorAll('.inst-rol-descripcion').forEach(function(desc) {
+                desc.style.display = 'none';
+              });
+              document.querySelectorAll('.inst-rol-toggle-btn i').forEach(function(ic) {
+                ic.className = 'fas fa-chevron-down';
+              });
+
+              // Toggle el actual
+              if (!isVisible) {
+                descripcion.style.display = 'block';
+                if (icon) icon.className = 'fas fa-chevron-up';
+              }
+            });
+          }
+        });
+
+        // Funcionalidad para seleccionar rol (cambiar clase activa)
+        document.querySelectorAll('article[data-inst-tribu]').forEach(function(article) {
+          const rolItems = article.querySelectorAll('.inst-rol-item');
+
+          rolItems.forEach(function(item) {
+            item.addEventListener('click', function() {
+              rolItems.forEach(function(r) { r.classList.remove('rol-activo'); });
+              item.classList.add('rol-activo');
+            });
+          });
+        });
+      })();
+    </script>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — BANDA "ELIGE TU ROL"
+       Fondo amarillo (#FFDC4A). Tipografía Koulen azul oscuro.
+       
+       En el Figma esta banda ya era #FFDC4A — se mantiene igual.
+  ══════════════════════════════════════════════════════ -->
+  <div class="inst-elige-rol animar">
+    <h2 class="inst-elige-rol__titulo">ELIGE TU ROL</h2>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       CULTURA SIKUANI — Sección de selección de rol
+       
+       Estructura:
+         ▸ Banda "SIKUANI" — fondo #B2296F (rosa)
+         ▸ Grid 2 columnas:
+             Izquierda: lista de roles (Cazador, Chamán, Médico, Guardian)
+             Derecha: imagen del rol / descripción
+         ▸ Texto descriptivo del rol seleccionado
+  ══════════════════════════════════════════════════════ -->
+  <article aria-label="Cultura Sikuani" data-inst-tribu="sikuani">
+
+    <!-- Banda Sikuani: fondo rosa #B2296F -->
+    <div class="inst-banda-cultura inst-banda-cultura--sikuani">
+      <h3 class="inst-banda-cultura__nombre">S I K U A N I</h3>
+    </div>
+
+    <!-- Grid: roles + imagen -->
+    <div class="inst-roles-grid">
+
+      <!-- Panel izquierdo: lista de roles clicables + textos -->
+      <div class="inst-roles-panel" role="list" aria-label="Roles Sikuani">
+
+        <!-- Cazador -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item rol-activo" role="listitem" tabindex="0" data-rol="cazador">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Cazador</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Cazador (Sikuani)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chamán -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="chaman">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Chamán</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Chamán (Sikuani)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Médico -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="medico">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Médico</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Médico (Sikuani)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guardian -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="guardian">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Guardian</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Guardian (Sikuani)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="inst-texto-panel-rol" aria-live="polite"></div>
+      </div>
+
+      <!-- Panel derecho: representación visual del rol seleccionado -->
+      <div class="inst-imagen-panel" aria-label="Representación visual del rol seleccionado">
+        <p class="inst-imagen-panel__etiqueta">Representación visual</p>
+        <img
+          class="inst-imagen-panel__img"
+          src="Imagenes/SIKUANI/CAZADOR%20SIKUANI.png"
+          alt="Cazador — representación visual Sikuani"
+        />
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       CULTURA NUKAK — Sección de selección de rol
+       Misma estructura que Sikuani.
+       Banda también era #B2296F → ahora #FFDC4A.
+  ══════════════════════════════════════════════════════ -->
+  <article aria-label="Cultura Nukak" data-inst-tribu="nukak">
+
+    <!-- Banda del nombre de la cultura (era #B2296F → ahora #FFDC4A) -->
+    <div class="inst-banda-cultura">
+      <h3 class="inst-banda-cultura__nombre">N U K A K</h3>
+    </div>
+
+    <!-- Grid: roles + imagen -->
+    <div class="inst-roles-grid">
+
+      <!-- Lista de roles Nukak -->
+      <div class="inst-roles-panel" role="list" aria-label="Roles Nukak">
+
+        <!-- Cazador -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item rol-activo" role="listitem" tabindex="0" data-rol="cazador">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Cazador</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Cazador (Nukak)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chamán -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="chaman">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Chamán</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Chamán (Nukak)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Médico -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="medico">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Médico</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Médico (Nukak)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guardian -->
+        <div class="inst-rol-wrapper">
+          <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="guardian">
+            <span class="inst-rol-item__flecha">›</span>
+            <span class="inst-rol-item__nombre">Guardian</span>
+            <div class="inst-rol-actions">
+              <button type="button" class="inst-rol-audio-btn" aria-label="Reproducir audio del rol Guardian (Nukak)" title="Reproducir audio">
+                <i class="fas fa-play" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="inst-texto-panel-rol" aria-live="polite"></div>
+      </div>
+
+      <!-- Panel derecho: representación visual del rol seleccionado -->
+      <div class="inst-imagen-panel" aria-label="Representación visual del rol seleccionado">
+        <p class="inst-imagen-panel__etiqueta">Representación visual</p>
+        <img
+          class="inst-imagen-panel__img"
+          src="Imagenes/NUKAK/CAZADOR_NUKAK.png"
+          alt="Cazador — representación visual Nukak"
+        />
+      </div>
+    </div>
+  </article>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Todos los derechos reservados©️ 2026</a>
+
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

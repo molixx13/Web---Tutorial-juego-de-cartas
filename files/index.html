@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Página Principal (index.html)
+  
+  Estructura de secciones:
+    1. <header>  — Navegación global sticky
+    2. .hero     — Banner principal con imagen de fondo
+    3. #seccion-cartas — Carrusel de cartas del juego
+    4. .seccion-culturas — Paneles Nukak / Sikuani
+    5. .seccion-ecos-dark — Repetición del logo ECOS
+    6. .seccion-final-dark — Bloque oscuro decorativo
+    7. <footer>  — Links legales
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS: Umbral de los Eternos</title>
+
+  <!-- Fuentes del proyecto (coincide con Figma: Koulen + Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Hoja de estilos compartida -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — Navegación global sticky
+       Clase "activo" se asigna dinámicamente por JS según la página actual.
+       El item activo recibe fondo #B2296F (--rosa) por CSS.
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+
+    <!-- Logo del juego / estudio -->
+    <div class="header__logo">
+      <a href="index.html" title="Inicio">
+        <img
+          src="https://www.figma.com/api/mcp/asset/709fed35-f489-4443-a794-6ffad1bfad14"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <!-- Navegación principal -->
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/drive/folders/1aFhP5xda_X0VcE0jvxz1ZZw9O-VDDXZF?usp=drive_link" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <!-- Iconos de acción (búsqueda, cuenta, carrito) -->
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img
+          src="https://www.figma.com/api/mcp/asset/d0a17934-c824-4294-9baf-b1ce5fec9df4"
+          alt="Buscar"
+        />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img
+          src="https://www.figma.com/api/mcp/asset/3e64e5b0-0a5e-488f-ac11-7d9508e193a9"
+          alt="Cuenta"
+        />
+      </button>
+      <button aria-label="Carrito">
+        <img
+          src="https://www.figma.com/api/mcp/asset/c3ba4121-0142-469e-92d6-dd1bf4746853"
+          alt="Carrito"
+        />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO
+       Imagen de fondo (selva/personajes) con overlay oscuro.
+       Título ECOS y descripción del juego.
+  ══════════════════════════════════════════════════════ -->
+  <section class="hero" aria-label="Presentación del juego">
+
+    <!-- Imagen de fondo tomada directamente de Figma (Rectangle 2) -->
+    <img
+      class="hero__imagen"
+      src="https://www.figma.com/api/mcp/asset/93c10f2f-82f4-4176-ad0a-57a1a3343212"
+      alt="Imagen de fondo — personajes en la selva"
+    />
+
+    <!-- Contenido textual centrado sobre la imagen -->
+    <div class="hero__contenido fade-in">
+
+      <!-- Título grande "ECOS" -->
+      <p class="hero__titulo-grande">ECOS</p>
+
+      <!-- Subtítulo del juego -->
+      <p class="hero__subtitulo">UMBRAL DE LOS ETERNOS</p>
+
+      <!-- Descripción breve -->
+      <p class="hero__descripcion">
+        Adéntrate en el umbral entre el mundo de los vivos y el de los eternos.
+        Un juego de cartas inspirado en las culturas indígenas colombianas Nukak y Sikuani,
+        donde la estrategia y el misticismo se unen en cada partida.
+      </p>
+
+      <!-- Botón "ver más" — hace scroll hacia la sección de cartas -->
+      <button
+        id="btn-ver-mas"
+        class="hero__btn-vermás"
+        aria-label="Ver más sobre el juego"
+      >
+        ver más ›
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — CARTAS (carrusel)
+       Fondo crema. Título "CARTAS" con tipografía Koulen.
+       Carrusel horizontal con imágenes de ejemplo.
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-cartas" class="seccion-cartas" aria-label="Sección de cartas">
+
+    <!-- Título de sección -->
+    <h2 class="seccion-titulo animar">C A R T A S</h2>
+
+    <!-- Carrusel de cartas (scroll horizontal) -->
+    <div class="carousel" role="list" aria-label="Carrusel de cartas del juego">
+
+      <!-- Carta 1: Personaje -->
+      <div class="carousel__item card-hover" role="listitem">
+        <img
+          src="https://www.figma.com/api/mcp/asset/a6ca27f6-d609-4254-b75a-f4a1af260ecb"
+          alt="Carta: Isaac"
+        />
+      </div>
+
+      <!-- Carta 2: Character back -->
+      <div class="carousel__item card-hover" role="listitem">
+        <img
+          src="https://www.figma.com/api/mcp/asset/67ab132a-14be-43cc-a580-95bb94699979"
+          alt="Carta: Dorso de personaje"
+        />
+      </div>
+
+      <!-- Carta 3: Objeto -->
+      <div class="carousel__item card-hover" role="listitem">
+        <img
+          src="https://www.figma.com/api/mcp/asset/48058872-51bf-4500-90fe-8cf60337fcee"
+          alt="Carta: Eterno"
+        />
+      </div>
+
+      <!-- Carta 4: Loot -->
+      <div class="carousel__item card-hover" role="listitem">
+        <img
+          src="https://www.figma.com/api/mcp/asset/ec58585c-c8d1-49a5-be67-e4c553598ae9"
+          alt="Carta: Saqueo"
+        />
+      </div>
+
+      <!-- Carta 5: Monstruo -->
+      <div class="carousel__item card-hover" role="listitem">
+        <img
+          src="https://www.figma.com/api/mcp/asset/994ad71a-57cb-4acc-9ce7-e4332084e795"
+          alt="Carta: Monstruo"
+        />
+      </div>
+    </div>
+
+    <!-- Texto descriptivo bajo el carrusel -->
+    <p class="seccion-cartas__texto animar">
+      Las cartas son el corazón de nuestra aventura, ya que todo el sistema de juego gira en torno a ellas. Encontrarás cartas para objetos de la tienda, enemigos y mucho más. Haz clic en cualquier carta para descubrir sus efectos y detalles específicos.
+    </p>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — CULTURAS
+       Dos paneles lado a lado:
+         ▸ Izquierda (Nukak)  — fondo #FFDC4A (sustituye #B2296F)
+         ▸ Derecha (Sikuani)  — fondo #D9D9D9
+       Cada panel enlaza a culturas.html con el parámetro correspondiente.
+  ══════════════════════════════════════════════════════ -->
+  <section class="seccion-culturas" aria-label="Culturas del juego">
+
+    <!-- Banda de título "CULTURAS" -->
+    <div class="culturas__titulo" role="heading" aria-level="2">
+      C U L T U R A S
+    </div>
+
+    <!-- Grid de dos paneles -->
+    <div class="culturas__grid">
+
+      <!-- Panel Nukak — fondo amarillo (era rosa #B2296F) -->
+      <a
+        href="culturas.html?cultura=nukak"
+        class="cultura-panel cultura-panel--nukak animar"
+        aria-label="Ver cultura Nukak"
+      >
+        <span class="cultura-panel__nombre">
+          NUKAK
+          <span class="cultura-panel__flecha">›</span>
+        </span>
+      </a>
+
+      <!-- Panel Sikuani — fondo gris -->
+      <a
+        href="culturas.html?cultura=sikuani"
+        class="cultura-panel cultura-panel--sikuani animar"
+        aria-label="Ver cultura Sikuani"
+      >
+        <span class="cultura-panel__nombre">
+          SIKUANI
+          <span class="cultura-panel__flecha">›</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 4 — ECOS (repetición, fondo gris)
+       Replica el bloque con el logo "ECOS / UMBRAL DE LOS ETERNOS"
+       que aparece en la parte inferior del diseño Figma.
+  ══════════════════════════════════════════════════════ -->
+  <section class="seccion-ecos-dark animar" aria-label="Logo repetido">
+    <div>
+      <p class="ecos-dark__titulo">ECOS</p>
+      <p class="ecos-dark__subtitulo">UMBRAL DE LOS ETERNOS</p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 5 — BLOQUE FINAL OSCURO
+       Fondo azul oscuro (#2F455C) — decorativo / reservado
+       para contenido adicional.
+  ══════════════════════════════════════════════════════ -->
+  <section class="seccion-final-dark" aria-hidden="true">
+    <!-- Espacio visual intencional — fondo azul oscuro -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER — Links legales
+       Fondo azul oscuro. Cuatro columnas con textos legales.
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+
+  <!-- Script principal (al final del body para no bloquear el render) -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

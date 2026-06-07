@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Instrucciones (instrucciones.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (JUEGO activo)
+    2. .inst-hero     — Hero con imagen de fondo + botón INSTRUCCIONES
+    3. .inst-descripcion — Descripción del juego (fondo azul)
+    4. .inst-elige-rol   — Banda amarilla "ELIGE TU ROL"
+    5. Cultura Sikuani   — Banda + grid de roles + texto
+    6. Cultura Nukak     — Banda + grid de roles + texto
+    7. <footer>
+    
+  Modificación de color:
+    Las bandas de cultura eran #B2296F en Figma.
+    Ahora usan --amarillo (#FFDC4A) según el requisito.
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Instrucciones del Juego</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <style>
+    /* ── Estilo adicional específico de esta página ── */
+
+    /* Imagen de rol (derecha del grid) */
+    .inst-imagen-panel {
+      position: relative;
+      overflow: hidden;
+    }
+    .inst-imagen-panel__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Texto descriptivo del rol seleccionado */
+    .inst-texto-panel {
+      background-color: var(--azul-oscuro);
+      padding: 32px 60px;
+      text-align: center;
+      font-size: clamp(14px, 1.5vw, 20px);
+      color: var(--blanco);
+      font-weight: 600;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER
+       JS marca "activo" en #nav-instrucciones → fondo #B2296F
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="https://www.figma.com/api/mcp/asset/709fed35-f489-4443-a794-6ffad1bfad14"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/file/d/1MDhLtslKqvBi8fEtT59QJIxoBLWFHfQk/view?usp=sharing" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img src="https://www.figma.com/api/mcp/asset/d0a17934-c824-4294-9baf-b1ce5fec9df4" alt="Buscar" />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img src="https://www.figma.com/api/mcp/asset/3e64e5b0-0a5e-488f-ac11-7d9508e193a9" alt="Cuenta" />
+      </button>
+      <button aria-label="Carrito">
+        <img src="https://www.figma.com/api/mcp/asset/c3ba4121-0142-469e-92d6-dd1bf4746853" alt="Carrito" />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO con imagen de fondo
+       Imagen: mesa de juego con cartas (Rectangle 31 del Figma).
+       Superpone el título "JUEGO" y el botón "INSTRUCCIONES".
+  ══════════════════════════════════════════════════════ -->
+  <section class="inst-hero" aria-label="Hero instrucciones">
+
+    <!-- Imagen de fondo de la sección -->
+    <img
+      class="inst-hero__imagen"
+      src="https://www.figma.com/api/mcp/asset/27258faa-d422-4b28-b5ee-076b337add84"
+      alt="Mesa de juego con cartas"
+    />
+
+    <!-- Contenido superpuesto -->
+    <div class="inst-hero__contenido">
+      <!-- Título del juego sobre el hero -->
+      <h1 class="inst-titulo-juego fade-in">J U E G O</h1>
+
+      <!-- Botón "INSTRUCCIONES" — fondo amarillo (#FFDC4A) -->
+      <button class="inst-btn-instrucciones fade-in" aria-label="Ver instrucciones">
+        INSTRUCCIONES
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — DESCRIPCIÓN DEL JUEGO
+       Fondo azul oscuro. Texto explicativo del juego.
+  ══════════════════════════════════════════════════════ -->
+  <div class="inst-descripcion animar">
+    <p class="inst-descripcion__texto">
+      Aut inventore ratione eos quia nulla aut vitae dolores qui ullam optio qui
+      maxime laborum ea fugit dolor qui similique architecto? Est accusamus quia
+      cum dolorem necessitatibus aut inventore veritatis eos dicta repudiandae est
+      quod amet in ratione quos rem eaque suscipit? Ab porro repellendus eum quis
+      voluptates ex odit accusamus non consequatur dolorem id beatae aliquid est
+      illum delectus. A nesciunt officia non nisi suscipit ut voluptas voluptate
+      quo aliquid sint.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — BANDA "ELIGE TU ROL"
+       Fondo amarillo (#FFDC4A). Tipografía Koulen azul oscuro.
+       
+       En el Figma esta banda ya era #FFDC4A — se mantiene igual.
+  ══════════════════════════════════════════════════════ -->
+  <div class="inst-elige-rol animar">
+    <h2 class="inst-elige-rol__titulo">ELIGE TU ROL</h2>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       CULTURA SIKUANI — Sección de selección de rol
+       
+       Estructura:
+         ▸ Banda "SIKUANI" — fondo amarillo (era #B2296F en Figma)
+         ▸ Grid 2 columnas:
+             Izquierda: lista de roles (Cazador, Chamán, Médico, Guerrero)
+             Derecha: imagen del rol / descripción
+         ▸ Texto descriptivo del rol seleccionado
+  ══════════════════════════════════════════════════════ -->
+  <article aria-label="Cultura Sikuani" data-inst-tribu="sikuani">
+
+    <!-- Banda del nombre de la cultura (era #B2296F → ahora #FFDC4A) -->
+    <div class="inst-banda-cultura">
+      <h3 class="inst-banda-cultura__nombre">S I K U A N I</h3>
+    </div>
+
+    <!-- Grid: roles + imagen -->
+    <div class="inst-roles-grid">
+
+      <!-- Panel izquierdo: lista de roles clicables -->
+      <div class="inst-roles-panel" role="list" aria-label="Roles Sikuani">
+
+        <!-- Cada rol es clicable. JS agrega .rol-activo al hacer clic. -->
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="cazador">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Cazador</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="chaman">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Chamán</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="medico">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Médico</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="guardian">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Guerrero</span>
+        </div>
+      </div>
+
+      <!-- Panel derecho: imagen representativa del rol -->
+      <div class="inst-imagen-panel">
+        <img
+          class="inst-imagen-panel__img"
+          src="https://www.figma.com/api/mcp/asset/b28afac1-1a38-412c-8741-2c496b2236a7"
+          alt="Representación visual del rol — Sikuani"
+        />
+      </div>
+    </div>
+
+    <!-- Texto descriptivo del rol seleccionado -->
+    <div class="inst-texto-panel animar">
+      <p>
+        Et in ratione quos rem eaque suscipit? Ab porro repellendus eum quis
+        voluptates ex odit accusamus non consequatur dolorem id beatae aliquid
+        est illum delectus. A nesciunt officia non nisi suscipit ut voluptas
+        voluptate quo aliquid sint.
+      </p>
+    </div>
+  </article>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       CULTURA NUKAK — Sección de selección de rol
+       Misma estructura que Sikuani.
+       Banda también era #B2296F → ahora #FFDC4A.
+  ══════════════════════════════════════════════════════ -->
+  <article aria-label="Cultura Nukak" data-inst-tribu="nukak">
+
+    <!-- Banda del nombre de la cultura (era #B2296F → ahora #FFDC4A) -->
+    <div class="inst-banda-cultura">
+      <h3 class="inst-banda-cultura__nombre">N U K A K</h3>
+    </div>
+
+    <!-- Grid: roles + imagen -->
+    <div class="inst-roles-grid">
+
+      <!-- Lista de roles Nukak -->
+      <div class="inst-roles-panel" role="list" aria-label="Roles Nukak">
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="cazador">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Cazador</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="chaman">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Chamán</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="medico">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Médico</span>
+        </div>
+
+        <div class="inst-rol-item" role="listitem" tabindex="0" data-rol="guardian">
+          <span class="inst-rol-item__flecha">›</span>
+          <span class="inst-rol-item__nombre">Guerrero</span>
+        </div>
+      </div>
+
+      <!-- Imagen del rol (panel derecho) -->
+      <div class="inst-imagen-panel">
+        <img
+          class="inst-imagen-panel__img"
+          src="https://www.figma.com/api/mcp/asset/9cbd5858-a479-4cc6-b01b-c04ca02a0deb"
+          alt="Representación visual del rol — Nukak"
+        />
+      </div>
+    </div>
+
+    <!-- Texto descriptivo del rol -->
+    <div class="inst-texto-panel animar">
+      <p>
+        Et in ratione quos rem eaque suscipit? Ab porro repellendus eum quis
+        voluptates ex odit accusamus non consequatur dolorem id beatae aliquid
+        est illum delectus. A nesciunt officia non nisi suscipit ut voluptas
+        voluptate quo aliquid sint.
+      </p>
+    </div>
+  </article>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

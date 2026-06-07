@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Tienda (tienda.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (TIENDA activo)
+    2. .tienda-hero   — Hero con título "Tienda" + imagen de fondo
+    3. .tienda-subnav — Subnavegación: JUEGO | Cartas | Fichas | Ofertas
+    4. Sección Cartas  — 3 productos + botones COMPRAR
+    5. Sección Fichas  — 3 productos + botones COMPRAR
+    6. Sección Ofertas — 3 productos + botones COMPRAR
+    7. <footer>
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Tienda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-tienda
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="Fondos/DREAM_FORGE.png"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="../MANUAL.pdf" download>MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <i class="fas fa-search"></i>
+      </button>
+      <button aria-label="Mi cuenta">
+        <i class="fas fa-user"></i>
+      </button>
+      <button aria-label="Carrito">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de la Tienda
+       Fondo gris con imagen (placeholder) y título "Tienda"
+       en tipografía Koulen grande.
+  ══════════════════════════════════════════════════════ -->
+  <section class="tienda-hero tienda-hero--con-fondo" aria-label="Hero tienda">
+    <div class="tienda-hero__capa">
+      <h1 class="tienda-hero__titulo tienda-hero__titulo--sobre-foto fade-in">Tienda</h1>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — SUBNAVEGACIÓN DE LA TIENDA
+       Permite filtrar por categoría: JUEGO, Cartas, Fichas, Ofertas.
+       JS activa .activo-subnav en el primero por defecto.
+  ══════════════════════════════════════════════════════ -->
+  <nav class="tienda-subnav" aria-label="Categorías de la tienda">
+    <a href="#seccion-juego"   class="tienda-subnav__link">JUEGO</a>
+    <a href="#seccion-cartas"  class="tienda-subnav__link">Cartas</a>
+    <a href="#seccion-fichas"  class="tienda-subnav__link">Fichas</a>
+    <a href="#seccion-ofertas" class="tienda-subnav__link">Ofertas</a>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — PRODUCTO DESTACADO (Juego completo)
+       Fondo gris de gran altura + botón COMPRAR centrado.
+       (Rectangle 23 del Figma — gran bloque al inicio)
+  ══════════════════════════════════════════════════════ -->
+  <section
+    id="seccion-juego"
+    class="tienda-seccion"
+    aria-label="Juego completo"
+    style="background-color: var(--gris); min-height: 940px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 40px;"
+  >
+    <!-- Imagen del producto destacado - Juego Completo -->
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; padding: 40px;">
+      <img
+        src="imagenes_tienda/Tienda_juego.png"
+        alt="Juego ECOS completo"
+        style="width: 100%; max-width: 700px; height: auto; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3);"
+      />
+    </div>
+
+    <!-- Banda divisoria (Rectangle 26 del Figma) -->
+    <div style="width: 100%; background-color: var(--azul-oscuro); padding: 16px; text-align: center; margin-bottom: 24px;">
+      <button class="producto-card__btn" style="font-size: clamp(16px, 2vw, 22px);">
+        COMPRAR
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 4 — CARTAS
+       Encabezado "Cartas" + grid de 3 productos con botones COMPRAR.
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-cartas" class="tienda-seccion" aria-label="Cartas">
+
+    <!-- Encabezado de categoría -->
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">Cartas</h2>
+    </div>
+
+    <!-- Grid de 3 productos -->
+    <div class="productos-grid">
+
+      <!-- Producto 1 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas1.png"
+          alt="Mazo de cartas - Producto 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 1">
+          COMPRAR
+        </button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas2.png"
+          alt="Mazo de cartas - Producto 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 2">
+          COMPRAR
+        </button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas3.png"
+          alt="Mazo de cartas - Producto 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 3">
+          COMPRAR
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 5 — FICHAS
+       Misma estructura que Cartas.
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-fichas" class="tienda-seccion" aria-label="Fichas">
+
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">FICHAS</h2>
+    </div>
+
+    <div class="productos-grid">
+
+      <!-- Ficha 1 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas1.png"
+          alt="Ficha de personaje - Producto 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 1">COMPRAR</button>
+      </div>
+
+      <!-- Ficha 2 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas2.png"
+          alt="Ficha de personaje - Producto 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 2">COMPRAR</button>
+      </div>
+
+      <!-- Ficha 3 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas3.png"
+          alt="Ficha de personaje - Producto 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 3">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 6 — OFERTAS
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-ofertas" class="tienda-seccion" aria-label="Ofertas">
+
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">OFERTAS</h2>
+    </div>
+
+    <div class="productos-grid">
+
+      <!-- Oferta 1 -->
+      <div class="producto-card" style="position: relative;">
+        <!-- Badge de descuento -->
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -20%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas1.png"
+          alt="Oferta - Pack Cartas 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 1">COMPRAR</button>
+      </div>
+
+      <!-- Oferta 2 -->
+      <div class="producto-card" style="position: relative;">
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -15%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas2.png"
+          alt="Oferta - Pack Cartas 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 2">COMPRAR</button>
+      </div>
+
+      <!-- Oferta 3 -->
+      <div class="producto-card" style="position: relative;">
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -30%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="imagenes_tienda/Tienda_cartas3.png"
+          alt="Oferta - Pack Cartas 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 3">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Todos los derechos reservados©️ 2026</a>
+
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1416 @@
+/* ============================================================
+   ECOS: UMBRAL DE LOS ETERNOS — Hoja de estilos principal
+   Paleta de colores del proyecto (definida como variables CSS):
+     --amarillo:   #FFDC4A  → sustituye a #B2296F en fondos/recuadros
+     --rosa:       #B2296F  → reservado para el nav-item activo
+     --azul-oscuro:#2F455C  → secciones oscuras y footer
+     --crema:      #FBFCF1  → header y fondos claros
+     --gris:       #D9D9D9  → recuadros secundarios
+     --blanco:     #FFFFFF  → fondo de página
+   ============================================================ */
+
+/* ── IMPORTACIÓN DE FUENTES ── */
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap');
+
+/* ── VARIABLES GLOBALES ── */
+:root {
+  --amarillo:    #FFDC4A;   /* color principal de recuadros (reemplaza B2296F) */
+  --rosa:        #B2296F;   /* nav item activo */
+  --azul-oscuro: #2F455C;   /* headers, footer, secciones oscuras */
+  --crema:       #FBFCF1;   /* header y fondos neutros claros */
+  --gris:        #D9D9D9;   /* recuadros secundarios/placeholders */
+  --blanco:      #FFFFFF;
+  --negro:       #000000;
+
+  --font-titulo:  'Koulen', sans-serif;
+  --font-cuerpo:  'Inter', sans-serif;
+
+  --ancho-max:    1440px;   /* ancho de referencia del canvas Figma */
+  --alto-header:  114px;
+}
+
+/* ── RESET BÁSICO ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-cuerpo);
+  background-color: var(--blanco);
+  color: var(--negro);
+  min-width: 320px;
+}
+
+img { max-width: 100%; display: block; }
+a   { text-decoration: none; color: inherit; }
+ul  { list-style: none; }
+
+/* ============================================================
+   HEADER / NAVEGACIÓN
+   ============================================================ */
+.header {
+  position: sticky;       /* se queda en la parte superior al hacer scroll */
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: var(--alto-header);
+  background-color: var(--crema);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Logo */
+.header__logo {
+  flex-shrink: 0;
+  width: 205px;
+  height: 66px;
+}
+.header__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Navegación central */
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Cada enlace del nav */
+.nav__link {
+  position: relative;
+  padding: 8px 16px;
+  font-family: var(--font-cuerpo);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--negro);
+  border-radius: 4px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav__link:hover {
+  /* hover sutil: fondo suave */
+  background-color: rgba(178, 41, 111, 0.08);
+  color: var(--rosa);
+}
+
+/* Estado activo: fondo rosa (#B2296F) según requisito */
+.nav__link.activo {
+  background-color: var(--rosa);
+  color: var(--crema);
+  border-radius: 4px;
+}
+
+.nav__link.activo:hover {
+  background-color: var(--rosa);
+  color: var(--crema);
+}
+
+/* Iconos del header (derecha) */
+.header__iconos {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header__iconos img,
+.header__iconos button {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  object-fit: contain;
+  border: none;
+  background: none;
+}
+
+/* FontAwesome icons en el header */
+.header__iconos button i {
+  font-size: 20px;
+  color: var(--negro);
+  transition: color 0.2s ease;
+}
+
+.header__iconos button:hover i {
+  color: var(--rosa);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background-color: var(--azul-oscuro);
+  padding: 40px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 48px;
+  text-align: center;
+}
+
+.footer__link {
+  font-family: var(--font-cuerpo);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--crema);
+  line-height: 1.45;
+  max-width: 280px;
+  transition: opacity 0.2s;
+}
+
+.footer__link:hover {
+  opacity: 0.75;
+}
+
+/* ============================================================
+   PÁGINA PRINCIPAL (index.html)
+   ============================================================ */
+
+/* ── Sección Hero ── */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 646px;
+  background-color: var(--negro);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero__imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;            /* overlay oscuro sobre la imagen */
+}
+
+.hero__contenido {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  text-align: center;
+  color: var(--blanco);
+}
+
+/* Título principal ECOS */
+.hero__titulo-grande {
+  font-family: var(--font-titulo);
+  font-size: clamp(80px, 12vw, 171px);
+  line-height: 0.9;
+  letter-spacing: clamp(4px, 1.2vw, 14px);
+  color: var(--blanco);
+  margin-bottom: 4px;
+}
+
+/* Subtítulo "UMBRAL DE LOS ETERNOS" (ritmo tipo lámina ESQUEMA) */
+.hero__subtitulo {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(13px, 1.85vw, 22px);
+  font-weight: 600;
+  letter-spacing: clamp(0.2em, 0.5vw, 0.42em);
+  text-transform: uppercase;
+  color: var(--blanco);
+  margin-bottom: 32px;
+}
+
+/* Descripción en el hero */
+.hero__descripcion {
+  font-size: clamp(14px, 1.8vw, 22px);
+  text-align: center;
+  line-height: 1.65;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 28px;
+}
+
+/* Botón "ver más" — CTA amarilla como INSTRUCCIONES en el ESQUEMA */
+.hero__btn-vermás {
+  display: inline-block;
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  font-family: var(--font-cuerpo);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  padding: 12px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.hero__btn-vermás:hover {
+  background-color: #f5d038;
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Sección CARTAS (index) ── */
+.seccion-cartas {
+  background-color: var(--crema);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.seccion-titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(40px, 7vw, 96px);
+  letter-spacing: 25px;
+  color: var(--azul-oscuro);
+  margin-bottom: 40px;
+}
+
+/* Carousel de cartas */
+.carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  justify-content: center;
+  scrollbar-width: thin;
+}
+
+.carousel__item {
+  flex-shrink: 0;
+  width: 227px;
+  height: 368px;
+  background-color: var(--gris);
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.carousel__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto descriptivo bajo el carrusel */
+.seccion-cartas__texto {
+  font-size: clamp(14px, 1.6vw, 20px);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 900px;
+  margin: 32px auto 0;
+  color: var(--negro);
+}
+
+/* ── Sección CULTURAS (index) ── */
+.seccion-culturas {
+  text-align: center;
+  padding: 0;
+}
+
+.culturas__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(40px, 7vw, 96px);
+  letter-spacing: 25px;
+  color: var(--crema);
+  background-color: var(--negro);
+  padding: 20px 0;
+}
+
+/* Grid de dos culturas lado a lado */
+.culturas__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 350px;
+}
+
+/* Panel izquierdo (Nukak) — era #B2296F → ahora #FFDC4A */
+.cultura-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  min-height: 350px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cultura-panel:hover { opacity: 0.9; }
+
+.cultura-panel--nukak  { background-color: #B2296F; } /* antes B2296F */
+.cultura-panel--sikuani { background-color: var(--amarillo); }
+
+.cultura-panel__nombre {
+  font-family: var(--font-titulo);
+  font-size: clamp(40px, 6vw, 96px);
+  letter-spacing: 25px;
+  color: var(--negro);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Flecha de dirección */
+.cultura-panel__flecha {
+  font-size: 0.5em;
+  color: var(--negro);
+}
+
+/* ── Sección inferior (ECOS + dark) ── */
+.seccion-ecos-dark {
+  background-color: var(--white);
+  padding: 60px 40px;
+  min-height: 434px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ecos-dark__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(50px, 8vw, 171px);
+  line-height: 0.9;
+  letter-spacing: clamp(4px, 1vw, 12px);
+  color: var(--negro);
+}
+
+.ecos-dark__subtitulo {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(12px, 1.6vw, 20px);
+  font-weight: 600;
+  letter-spacing: clamp(0.18em, 0.4vw, 0.36em);
+  text-transform: uppercase;
+  color: var(--negro);
+  margin-top: 8px;
+}
+
+.seccion-final-dark {
+  background-color: var(--azul-oscuro);
+  min-height: 1px;
+}
+
+/* ============================================================
+   PÁGINA CARTAS (cartas.html)
+   ============================================================ */
+
+/* Hero de la página Cartas */
+.cartas-hero {
+  position: relative;
+  width: 100%;
+  min-height: 697px;   /* 114px header + 583px imagen */
+  overflow: hidden;
+}
+
+.cartas-hero__imagen {
+  width: 100%;
+  height: 697px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay y título "CARTAS" sobre la imagen */
+.cartas-hero__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+}
+
+.cartas-hero__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(60px, 10vw, 96px);
+  letter-spacing: 43px;
+  color: var(--blanco);
+  text-align: center;
+}
+
+/* Banda "EXPLICACIÓN DE CARTAS" */
+.cartas-explicacion {
+  background-color: var(--azul-oscuro);
+  padding: 24px 40px;
+  text-align: center;
+}
+
+.cartas-explicacion__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(22px, 3.2vw, 38px);
+  letter-spacing: clamp(8px, 1.5vw, 22px);
+  color: var(--blanco);
+  text-transform: uppercase;
+}
+
+/* Descripción general de cartas */
+.cartas-descripcion {
+  max-width: 1318px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: var(--gris);
+  text-align: center;
+  font-size: clamp(14px, 1.5vw, 20px);
+  line-height: 1.65;
+}
+
+.cartas-descripcion p {
+  max-width: 920px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  color: var(--negro);
+}
+
+/* Secciones de tipos de cartas (alternan izquierda/derecha) */
+.tipo-carta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+}
+
+/* Fondo oscuro para paneles izquierdos */
+.tipo-carta__panel--oscuro {
+  background-color: var(--azul-oscuro);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+/* Fondo claro para paneles derechos */
+.tipo-carta__panel--claro {
+  background-color: var(--gris);
+  padding: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+/* Nombre del tipo de carta (mismo ritmo tipográfico que el ESQUEMA) */
+.tipo-carta__nombre {
+  font-family: var(--font-titulo);
+  font-size: clamp(20px, 2.8vw, 36px);
+  letter-spacing: clamp(6px, 1.1vw, 16px);
+  color: var(--crema);
+  text-transform: uppercase;
+}
+
+.tipo-carta__nombre--largo {
+  letter-spacing: clamp(4px, 0.8vw, 10px);
+}
+
+/* Texto descriptivo del tipo */
+.tipo-carta__texto {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(12px, 1.3vw, 18px);
+  color: var(--crema);
+  line-height: 1.6;
+}
+
+.tipo-carta__texto + .tipo-carta__texto {
+  margin-top: 0.85em;
+}
+
+.tipo-carta__texto + .tipo-carta__subtitulo {
+  margin-top: 0.9em;
+}
+
+.tipo-carta__panel--oscuro .tipo-carta__subtitulo {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(12px, 1.35vw, 17px);
+  font-weight: 700;
+  color: var(--amarillo);
+  margin: 0 0 0.35em;
+}
+
+.tipo-carta__nombre + .tipo-carta__texto,
+.tipo-carta__nombre + .tipo-carta__subtitulo {
+  margin-top: 0;
+}
+
+.tipo-carta__panel--oscuro .tipo-carta__lista {
+  margin: 0 0 0.9em 1.2em;
+  padding: 0;
+  list-style: disc;
+  color: var(--crema);
+  font-family: var(--font-cuerpo);
+  font-size: clamp(12px, 1.3vw, 18px);
+  line-height: 1.55;
+}
+
+.tipo-carta__panel--oscuro .tipo-carta__lista li + li {
+  margin-top: 0.4em;
+}
+
+.tipo-carta__lista + .tipo-carta__subtitulo {
+  margin-top: 0.85em;
+}
+
+.tipo-carta__lista + .tipo-carta__texto {
+  margin-top: 0.85em;
+}
+
+/* Imágenes de las cartas dentro del panel */
+.tipo-carta__img {
+  max-height: 400px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 4px 4px 16px rgba(0,0,0,0.25);
+  transition: transform 0.2s;
+}
+.tipo-carta__img:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+/* Invertir el orden para filas alternadas */
+.tipo-carta--invertido .tipo-carta__panel--oscuro { order: 2; }
+.tipo-carta--invertido .tipo-carta__panel--claro  { order: 1; }
+
+/* ============================================================
+   PÁGINA INSTRUCCIONES (instrucciones.html)
+   ============================================================ */
+
+/* Hero de instrucciones */
+.inst-hero {
+  position: relative;
+  min-height: 840px;
+  overflow: hidden;
+}
+
+.inst-hero__imagen {
+  width: 100%;
+  height: 840px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Capa de texto centrada */
+.inst-hero__contenido {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* Título grande "JUEGO" en hero */
+.inst-titulo-juego {
+  font-family: var(--font-titulo);
+  font-size: clamp(60px, 10vw, 100px);
+  letter-spacing: 45px;
+  color: var(--blanco);
+  text-align: center;
+}
+
+/* Botón "INSTRUCCIONES" amarillo */
+.inst-btn-instrucciones {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  font-family: var(--font-cuerpo);
+  font-size: clamp(14px, 1.8vw, 22px);
+  font-weight: 800;
+  padding: 14px 40px;
+  border-radius: 70px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 2px;
+}
+.inst-btn-instrucciones:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Banda descriptiva oscura */
+.inst-descripcion {
+  background-color: var(--azul-oscuro);
+  padding: 32px 60px;
+  text-align: center;
+}
+
+.inst-descripcion__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(22px, 3.2vw, 36px);
+  letter-spacing: 0.06em;
+  color: var(--blanco);
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto 28px;
+  line-height: 1.25;
+  font-weight: 400;
+}
+
+.inst-descripcion__texto {
+  font-size: clamp(14px, 1.5vw, 19px);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  line-height: 1.75;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.inst-descripcion__texto p + p {
+  margin-top: 1.15em;
+}
+
+/* Banda "ELIGE TU ROL" — era #FFDC4A en el diseño (ya correcto) */
+.inst-elige-rol {
+  background-color: var(--amarillo);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.inst-elige-rol__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(36px, 6vw, 96px);
+  letter-spacing: 25px;
+  color: var(--azul-oscuro);
+}
+
+/* Banda de cultura — Nukak: amarillo; Sikuani (pág. Juego): rosa #B2296F */
+.inst-banda-cultura {
+  background-color: var(--amarillo);
+  padding: 16px 40px;
+  text-align: center;
+}
+
+.inst-banda-cultura--sikuani {
+  background-color: var(--rosa);
+}
+
+.inst-banda-cultura__nombre {
+  font-family: var(--font-titulo);
+  font-size: clamp(36px, 6vw, 96px);
+  letter-spacing: 25px;
+  color: var(--azul-oscuro);
+}
+
+.inst-banda-cultura--sikuani .inst-banda-cultura__nombre {
+  color: var(--blanco);
+}
+
+/* Grid de roles */
+.inst-roles-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 440px;
+}
+
+/* Panel izquierdo: lista de roles */
+.inst-roles-panel {
+  background-color: var(--azul-oscuro);
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.inst-rol-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.inst-rol-item:last-child { border-bottom: none; }
+
+.inst-rol-item:hover {
+  background-color: rgba(255, 220, 74, 0.1);
+  padding-left: 8px;
+  border-radius: 4px;
+}
+
+.inst-rol-item__nombre {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(18px, 2vw, 28px);
+  font-weight: 700;
+  color: var(--blanco);
+  flex: 1;
+  min-width: 0;
+}
+
+.inst-rol-item__flecha {
+  color: var(--amarillo);
+  font-size: 1.2em;
+  flex-shrink: 0;
+}
+
+.inst-rol-audio-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 220, 74, 0.55);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--amarillo);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.inst-rol-audio-btn:hover {
+  background: rgba(255, 220, 74, 0.2);
+  border-color: var(--amarillo);
+  transform: scale(1.06);
+}
+
+.inst-rol-audio-btn:focus-visible {
+  outline: 2px solid var(--amarillo);
+  outline-offset: 3px;
+}
+
+.inst-rol-audio-btn--playing {
+  background: rgba(255, 220, 74, 0.35);
+  color: var(--azul-oscuro);
+  border-color: var(--amarillo);
+}
+
+.inst-rol-audio-btn i {
+  font-size: 15px;
+  margin-left: 2px;
+}
+
+.inst-rol-audio-btn--playing i {
+  margin-left: 0;
+}
+
+/* Panel derecho: representación visual del rol (instrucciones) */
+.inst-imagen-panel {
+  background-color: #1a2833;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 0;
+  overflow: hidden;
+}
+
+.inst-imagen-panel__etiqueta {
+  margin: 0;
+  padding: 10px 16px;
+  font-family: var(--font-cuerpo);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.inst-imagen-panel__img {
+  flex: 1;
+  width: 100%;
+  min-height: 280px;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* Texto de descripción del rol */
+.inst-texto-panel {
+  background-color: var(--azul-oscuro);
+  padding: 32px 60px;
+  text-align: center;
+}
+
+.inst-texto-panel__texto {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(12px, 1.4vw, 18px);
+  font-weight: 600;
+  color: var(--blanco);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================================
+   PÁGINA NUESTRA HISTORIA (nuestra-historia.html)
+   ============================================================ */
+
+/* Hero de Nuestra Historia */
+.historia-hero {
+  background-color: var(--azul-oscuro);
+  padding: 40px 60px;
+  min-height: 525px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.historia-hero__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(28px, 4vw, 52px);
+  color: var(--blanco);
+  letter-spacing: clamp(10px, 1.5vw, 22px);
+  text-transform: uppercase;
+}
+
+.historia-hero__texto {
+  font-size: clamp(14px, 1.5vw, 20px);
+  color: var(--crema);
+  line-height: 1.7;
+  max-width: 1000px;
+}
+
+/* Sección "Nuestro Recorrido" */
+.historia-recorrido {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.historia-recorrido__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--azul-oscuro);
+  letter-spacing: clamp(8px, 1.2vw, 16px);
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+/* Timeline vertical */
+.timeline {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--azul-oscuro);
+  transform: translateX(-50%);
+}
+
+.timeline__item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+  align-items: start;
+}
+
+.timeline__año {
+  background-color: var(--azul-oscuro);
+  color: var(--crema);
+  font-family: var(--font-cuerpo);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 6px;
+  text-align: center;
+  justify-self: center;
+}
+
+.timeline__nodo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--azul-oscuro);
+  border: 3px solid var(--crema);
+  box-shadow: 0 0 0 3px var(--azul-oscuro);
+  align-self: center;
+}
+
+.timeline__contenido {
+  background-color: var(--crema);
+  border: 1px solid var(--gris);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.07);
+}
+
+.timeline__contenido.derecha { grid-column: 3; }
+.timeline__contenido.izquierda { grid-column: 1; grid-row: 1; }
+
+/* Sección "Nuestro Equipo" */
+.historia-equipo {
+  background-color: var(--crema);
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.historia-equipo__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--azul-oscuro);
+  letter-spacing: clamp(8px, 1.2vw, 16px);
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+/* Grid de miembros del equipo */
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.equipo__miembro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.equipo__avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: var(--gris);
+  object-fit: cover;
+}
+
+.equipo__nombre {
+  font-family: var(--font-cuerpo);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+}
+
+.equipo__cargo {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--azul-oscuro);
+  opacity: 0.7;
+}
+
+/* ============================================================
+   PÁGINA TIENDA (tienda.html)
+   ============================================================ */
+
+/* Hero de Tienda */
+.tienda-hero {
+  background-color: var(--gris);
+  min-height: 430px;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo fotográfico opcional (ruta relativa desde css/) */
+.tienda-hero--con-fondo {
+  background-size: cover;
+  background-position: center;
+  background-image: url('../imagenes_tienda/Imagen_juego.png');
+}
+
+.tienda-hero__capa {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.tienda-hero__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(56px, 11vw, 112px);
+  letter-spacing: clamp(12px, 2vw, 28px);
+  color: var(--azul-oscuro);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tienda-hero__titulo--sobre-foto {
+  color: var(--blanco);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Subnavegación de Tienda */
+.tienda-subnav {
+  background-color: var(--crema);
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 16px;
+  border-bottom: 3px solid var(--gris);
+}
+
+.tienda-subnav__link {
+  font-family: var(--font-cuerpo);
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--azul-oscuro);
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tienda-subnav__link:hover,
+.tienda-subnav__link.activo-subnav {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+}
+
+/* Sección de productos */
+.tienda-seccion {
+  padding: 0;
+}
+
+/* Encabezado de cada categoría */
+.tienda-seccion__header {
+  background-color: var(--azul-oscuro);
+  padding: 20px 40px;
+  text-align: center;
+}
+
+.tienda-seccion__nombre {
+  font-family: var(--font-titulo);
+  font-size: clamp(32px, 5vw, 72px);
+  letter-spacing: 20px;
+  color: var(--blanco);
+  text-transform: uppercase;
+}
+
+/* Grid de productos (3 columnas) */
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.producto-card {
+  background-color: var(--gris);
+  min-height: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Imagen del producto - mostrar cartas completas */
+.producto-card__imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 85%;
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+  opacity: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover para las cartas */
+.producto-card:hover .producto-card__imagen {
+  transform: scale(1.05);
+}
+
+/* Botón "COMPRAR" */
+.producto-card__btn {
+  position: relative;
+  z-index: 2;
+  background-color: var(--azul-oscuro);
+  color: var(--crema);
+  font-family: var(--font-cuerpo);
+  font-size: clamp(14px, 1.5vw, 20px);
+  font-weight: 900;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: background-color 0.2s, transform 0.15s;
+}
+
+.producto-card__btn:hover {
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   PÁGINA CULTURAS (culturas.html)
+   ============================================================ */
+
+.cultura-hero {
+  position: relative;
+  min-height: 628px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cultura-hero__panel {
+  min-height: 628px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cultura-hero__panel--izq {
+  background-color: var(--amarillo); /* antes era la imagen, ahora el color */
+}
+
+.cultura-hero__panel--der {
+  background-color: var(--crema);
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.cultura-hero__conocenos-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.cultura-hero__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(60px, 10vw, 181px);
+  letter-spacing: clamp(10px, 1.8vw, 28px);
+  color: var(--azul-oscuro);
+  text-align: center;
+  z-index: 1;
+}
+
+/* Banda de navegación de cultura */
+.cultura-nav {
+  background-color: var(--crema);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  border-bottom: 3px solid var(--gris);
+}
+
+/* Al hacer scroll desde CONÓCENOS, el header sticky no tapa los botones */
+.cultura-nav--ancla {
+  scroll-margin-top: calc(var(--alto-header) + 16px);
+}
+
+.cultura-nav__btn {
+  font-family: var(--font-cuerpo);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--azul-oscuro);
+  cursor: pointer;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.cultura-nav__btn:hover,
+.cultura-nav__btn.activo-cultura {
+  background-color: var(--azul-oscuro);
+  color: var(--crema);
+}
+
+/* Contenido principal de la cultura */
+.cultura-contenido {
+  padding: 60px 80px;
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+}
+
+.cultura-contenido__titulo-seccion {
+  font-family: var(--font-titulo);
+  font-size: clamp(28px, 4vw, 50px);
+  letter-spacing: 8px;
+  color: var(--azul-oscuro);
+  text-align: center;
+  padding: 20px;
+  /* era #B2296F → ahora #FFDC4A */
+  background-color: var(--amarillo);
+  margin-bottom: 32px;
+}
+
+.cultura-contenido__texto {
+  font-size: clamp(14px, 1.5vw, 20px);
+  line-height: 1.8;
+  color: var(--negro);
+  text-align: justify;
+}
+
+.cultura-contenido__imagen {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 32px 0;
+}
+
+/* Sección creencias y características */
+.cultura-bloques {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 0;
+}
+
+.cultura-bloque {
+  padding: 40px 60px;
+}
+
+.cultura-bloque--oscuro {
+  background-color: var(--azul-oscuro);
+  color: var(--crema);
+}
+
+.cultura-bloque--claro {
+  background-color: var(--crema);
+  color: var(--negro);
+}
+
+/* Títulos de bloques según cultura */
+#nukak .cultura-bloque__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(24px, 3vw, 50px);
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  background-color: #B2296F;
+  color: var(--crema);
+  padding: 12px 24px;
+  text-align: center;
+}
+
+#sikuani .cultura-bloque__titulo {
+  font-family: var(--font-titulo);
+  font-size: clamp(24px, 3vw, 50px);
+  letter-spacing: 10px;
+  margin-bottom: 20px;
+  background-color: var(--amarillo);
+  color: var(--azul-oscuro);
+  padding: 12px 24px;
+  text-align: center;
+}
+
+.cultura-bloque__texto {
+  font-size: clamp(13px, 1.4vw, 18px);
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* ============================================================
+   UTILIDADES GENERALES
+   ============================================================ */
+
+/* Contenedor centrado con max-width */
+.contenedor {
+  max-width: var(--ancho-max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Espaciado de secciones */
+.seccion {
+  padding: 60px 0;
+}
+
+/* ============================================================
+   ANIMACIONES Y TRANSICIONES
+   ============================================================ */
+
+/* Fade-in al cargar la página */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Retraso escalonado para listas */
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.2s; }
+.fade-in:nth-child(3) { animation-delay: 0.3s; }
+.fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+/* Hover suave en tarjetas */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet (≤ 900px) */
+@media (max-width: 900px) {
+  .header__nav { gap: 4px; }
+  .nav__link { font-size: 14px; padding: 6px 10px; }
+
+  .culturas__grid { grid-template-columns: 1fr; }
+  .tipo-carta { grid-template-columns: 1fr; }
+  .tipo-carta--invertido .tipo-carta__panel--oscuro { order: 1; }
+  .tipo-carta--invertido .tipo-carta__panel--claro  { order: 2; }
+  .productos-grid { grid-template-columns: 1fr 1fr; }
+  .cultura-bloques { grid-template-columns: 1fr; }
+  .cultura-hero { grid-template-columns: 1fr; }
+  .inst-roles-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 12px; }
+  .timeline__item { grid-template-columns: 1fr; }
+}
+
+/* Móvil (≤ 600px) */
+@media (max-width: 600px) {
+  :root { --alto-header: 80px; }
+
+  .header { padding: 0 12px; gap: 8px; }
+  .header__logo { width: 120px; height: 40px; }
+  .nav__link { font-size: 12px; padding: 4px 8px; }
+  .header__iconos img { width: 24px; height: 24px; }
+
+  .hero__titulo-grande { font-size: 60px; }
+  .productos-grid { grid-template-columns: 1fr; }
+  .equipo-grid { grid-template-columns: 1fr 1fr; }
+  .footer { padding: 24px 16px; }
+  .footer__link { font-size: 13px; }
+}

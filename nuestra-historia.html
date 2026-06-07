@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Nuestra Historia (nuestra-historia.html)
+  
+  Estructura de secciones:
+    1. <header>            — Navegación (NUESTRA HISTORIA activo)
+    2. .historia-hero      — Banda oscura con título e intro
+    3. .historia-recorrido — Timeline del proyecto (2025, 2026, próximamente)
+    4. .historia-equipo    — Grid 3×2 de miembros del equipo
+    5. <footer>
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Nuestra Historia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-historia
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="Fondos/DREAM_FORGE.png"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="MANUAL.pdf" download>MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <i class="fas fa-search"></i>
+      </button>
+      <button aria-label="Mi cuenta">
+        <i class="fas fa-user"></i>
+      </button>
+      <button aria-label="Carrito">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO "Nuestra Historia"
+       Fondo azul oscuro. Título + dos párrafos descriptivos.
+       (Rectangle 6 del Figma: fondo azul, altura 525px)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-hero" aria-label="Nuestra historia">
+
+    <h1 class="historia-hero__titulo fade-in">nuestra historia</h1>
+
+    <!-- Párrafo 1 (top) -->
+    <p class="historia-hero__texto animar">
+      Este proyecto nace de la investigación de dos de las culturas más fascinantes y vulnerables de Colombia: los Nukak y los Sikuani. Nuestro juego de mesa transforma su cosmogonía en un sistema dinámico de interacción social, donde los jugadores deben navegar entre la diplomacia y la traición. El objetivo es claro pero desafiante: interactuar estratégicamente para conseguir las cuatro bendiciones otorgadas por los jefes. Es más que un juego; es una ventana para poner en primer plano un legado cultural que merece ser redescubierto.
+    </p>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — NUESTRO RECORRIDO (Timeline)
+       Tres hitos en línea de tiempo vertical:
+         ▸ 2025        (izquierda)
+         ▸ 2026        (derecha)
+         ▸ PRÓXIMAMENTE (izquierda)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-recorrido" aria-label="Recorrido del proyecto">
+
+    <h2 class="historia-recorrido__titulo fade-in">nuestro recorrido</h2>
+
+    <!-- Timeline vertical -->
+    <div class="timeline" role="list">
+
+      <!-- Hito 2025 -->
+      <div class="timeline__item" role="listitem">
+        <div></div><!-- columna vacía derecha -->
+        <div class="timeline__nodo" aria-hidden="true"></div>
+        <div class="timeline__contenido derecha animar">
+          <!-- Etiqueta del año -->
+          <div class="timeline__año">2025</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Inicio del desarrollo del proyecto "ECOS: Umbral de los Eternos".
+            Investigación de las culturas Nukak y Sikuani. Diseño de las primeras
+            cartas y mecánicas de juego.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hito 2026 -->
+      <div class="timeline__item" role="listitem">
+        <div class="timeline__contenido izquierda animar">
+          <div class="timeline__año">2026</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Lanzamiento de la versión beta del juego. Pruebas con grupos
+            focales universitarios. Ajustes de balanceo y mecánicas avanzadas.
+          </p>
+        </div>
+        <div class="timeline__nodo" aria-hidden="true"></div>
+        <div></div><!-- columna vacía -->
+      </div>
+
+      <!-- Hito Próximamente -->
+      <div class="timeline__item" role="listitem">
+        <div></div>
+        <div class="timeline__nodo" aria-hidden="true" style="background-color: var(--amarillo);"></div>
+        <div class="timeline__contenido derecha animar">
+          <div class="timeline__año" style="background-color: var(--amarillo); color: var(--azul-oscuro);">PRÓXIMAMENTE</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Versión comercial del juego con ilustraciones profesionales y expansiones
+            temáticas dedicadas a otras culturas indígenas de Colombia.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — NUESTRO EQUIPO
+       Grid de 3 columnas × 2 filas (6 miembros del equipo).
+       Avatares circulares con iconos de redes sociales.
+       (Figma muestra image 8–13 para fotos y social icons)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-equipo" aria-label="Nuestro equipo">
+
+    <h2 class="historia-equipo__titulo fade-in">nuestro equipo</h2>
+
+    <!-- Fila 1 de miembros -->
+    <div class="equipo-grid">
+
+      <!-- Miembro 1 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="AngelP.png" alt="Angel Jessid Rodriguez Montero" />
+        <p class="equipo__nombre" style="text-align: center;">Angel Jessid Rodriguez Montero</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 2 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="hollman.png" alt="Hollman Sneider Chaparro Hernandez" />
+        <p class="equipo__nombre" style="text-align: center;">Hollman Sneider Chaparro Hernandez</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 3 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="CrisangelP.jpeg" alt="Crisangel Noely Mendoza García" />
+        <p class="equipo__nombre" style="text-align: center;">Crisangel Noely Mendoza García</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2 de miembros -->
+    <div class="equipo-grid" style="margin-top: 40px;">
+
+      <!-- Miembro 4 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="CamiloP.png" alt="Juan Camilo Hernandez Muñoz" />
+        <p class="equipo__nombre" style="text-align: center;">Juan Camilo Hernandez Muñoz</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 5 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="silviP.png" alt="Silvana Cruz Bernal" />
+        <p class="equipo__nombre" style="text-align: center;">Silvana Cruz Bernal</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 6 -->
+      <div class="equipo__miembro animar">
+        <img class="equipo__avatar" src="DiegoP.png" alt="Diego Fernando Peralta Vanegas" />
+        <p class="equipo__nombre" style="text-align: center;">Diego Fernando Peralta Vanegas</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Todos los derechos reservados©️ 2026</a>
+
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Cartas (cartas.html)
+  
+  Estructura de secciones:
+    1. <header>  — Navegación global (CARTAS activo → fondo #B2296F)
+    2. .cartas-hero    — Imagen de fondo + título "CARTAS"
+    3. .cartas-explicacion  — Banda "EXPLICACIÓN DE CARTAS"
+    4. .cartas-descripcion  — Texto introductorio
+    5. Secciones alternadas de tipos de cartas (6 tipos):
+         Personajes / Objetos únicos / Objetos de tienda /
+         Objetos de saqueo / Enemigos / Rituales
+    6. <footer>  — Links legales
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Cartas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — Navegación global
+       JS asigna automáticamente "activo" a #nav-cartas
+       → fondo #B2296F sobre el botón "CARTAS"
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="https://www.figma.com/api/mcp/asset/893d2974-d1f5-4215-8e50-875751d547bf"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/drive/folders/1aFhP5xda_X0VcE0jvxz1ZZw9O-VDDXZF?usp=drive_link" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img src="https://www.figma.com/api/mcp/asset/006623de-65d9-425c-9844-3688f02d4646" alt="Buscar" />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img src="https://www.figma.com/api/mcp/asset/40502414-e47e-4721-9edd-a3805bad4acf" alt="Cuenta" />
+      </button>
+      <button aria-label="Carrito">
+        <img src="https://www.figma.com/api/mcp/asset/7755917a-04e9-46e9-8919-aea96c6b6236" alt="Carrito" />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de Cartas
+       Imagen de fondo (silhouettes / atardecer) del Figma.
+       Overlay semitransparente + título "CARTAS".
+  ══════════════════════════════════════════════════════ -->
+  <section class="cartas-hero" aria-label="Hero página Cartas">
+    <!-- Imagen de fondo (Rectangle 37 del Figma) -->
+    <img
+      class="cartas-hero__imagen"
+      src="https://www.figma.com/api/mcp/asset/64498c83-3423-4a31-8bd6-8e09869afcc7"
+      alt="Siluetas — escena de cartas"
+    />
+
+    <!-- Overlay con el título -->
+    <div class="cartas-hero__overlay">
+      <h1 class="cartas-hero__titulo fade-in">C A R T A S</h1>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — BANDA "EXPLICACIÓN DE CARTAS"
+       Fondo azul oscuro (#2F455C). Tipografía Koulen en blanco.
+  ══════════════════════════════════════════════════════ -->
+  <div class="cartas-explicacion">
+    <h2 class="cartas-explicacion__titulo">EXPLICACIÓN DE CARTAS</h2>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — TEXTO DESCRIPTIVO
+       Sobre fondo gris. Descripción general del sistema de cartas.
+  ══════════════════════════════════════════════════════ -->
+  <div class="cartas-descripcion animar">
+    <p>
+      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+      when an unknown printer took a galley of type and scrambled it to make a type
+      specimen book. It has survived not only five centuries, but also the leap into
+      electronic typesetting, remaining essentially unchanged. It was popularised in
+      the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+      and more recently with desktop publishing software like Aldus PageMaker.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIONES DE TIPOS DE CARTA
+       Alternan: panel texto (oscuro) | panel imágenes (claro)
+       y viceversa con la clase "tipo-carta--invertido".
+       
+       Tipos:
+         1. Personajes
+         2. Objetos únicos      (invertido)
+         3. Objetos de tienda
+         4. Objetos de saqueo   (invertido)
+         5. Enemigos
+         6. Rituales            (invertido)
+  ══════════════════════════════════════════════════════ -->
+
+  <!-- ── Tipo 1: Personajes ── -->
+  <section class="tipo-carta animar" aria-label="Tipo de carta: Personajes">
+
+    <!-- Panel izquierdo — nombre y descripción (fondo oscuro) -->
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">P E R S O N A J E S</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+    </div>
+
+    <!-- Panel derecho — imágenes de cartas de ejemplo -->
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/a6ca27f6-d609-4254-b75a-f4a1af260ecb"
+        alt="Carta personaje: Isaac"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/67ab132a-14be-43cc-a580-95bb94699979"
+        alt="Carta: Dorso de personaje"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 2: Objetos únicos (invertido) ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Tipo de carta: Objetos únicos">
+
+    <!-- Panel con imágenes (orden visual: izquierda) -->
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/48058872-51bf-4500-90fe-8cf60337fcee"
+        alt="Carta: Eternal Card Back"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/4a1852ca-bf47-4fd3-9099-9688468027f2"
+        alt="Carta: Dado D6"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/402ff669-a4f6-42db-bf78-7c4c4d23795f"
+        alt="Carta: Harapos de Lázaro"
+      />
+    </div>
+
+    <!-- Panel con texto (orden visual: derecha) -->
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">OBJETOS ÚNICOS</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 3: Objetos de tienda ── -->
+  <section class="tipo-carta animar" aria-label="Tipo de carta: Objetos de tienda">
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">OBJETOS DE TIENDA</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+    </div>
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/9f694f9d-2e93-469d-ba0c-8a01cc8c802e"
+        alt="Carta: Treasure Card Back"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/7270418f-33ab-4144-91a0-d498d6bb94a9"
+        alt="Carta: Brimstone"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/334e21ea-b612-4543-a927-0ad477de3fc2"
+        alt="Carta: Blank"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 4: Objetos de saqueo (invertido) ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Tipo de carta: Objetos de saqueo">
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/63ad7ad2-74fe-40b7-8eca-16f3d2691a86"
+        alt="Carta: Tres centavos"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/ec58585c-c8d1-49a5-be67-e4c553598ae9"
+        alt="Carta: Loot Card Back"
+      />
+    </div>
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">OBJETOS DE SAQUEO</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 5: Enemigos ── -->
+  <section class="tipo-carta animar" aria-label="Tipo de carta: Enemigos">
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">E N E M I G O S</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it.
+      </p>
+    </div>
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/994ad71a-57cb-4acc-9ce7-e4332084e795"
+        alt="Carta: Monster Card Back"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/708d2ecf-bcfa-43dc-8cc5-e95727ca4312"
+        alt="Carta: Araña grande"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/356c7fb2-61ee-4faa-8ca9-f67693f743f5"
+        alt="Carta: Daddy Long Legs"
+      />
+    </div>
+  </section>
+
+
+  <!-- ── Tipo 6: Rituales (invertido) ── -->
+  <section class="tipo-carta tipo-carta--invertido animar" aria-label="Tipo de carta: Rituales">
+
+    <div class="tipo-carta__panel--claro">
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/5cf40897-76b6-4870-af61-f0d0df41df03"
+        alt="Carta: Room Card Back"
+      />
+      <img
+        class="tipo-carta__img"
+        src="https://www.figma.com/api/mcp/asset/b67fef17-8e7d-4c9a-b8bc-897b1c0aa0fd"
+        alt="Carta: Battle Royale"
+      />
+    </div>
+
+    <div class="tipo-carta__panel--oscuro">
+      <h3 class="tipo-carta__nombre">R I T U A L E S</h3>
+      <p class="tipo-carta__texto">
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type
+        specimen book. It has survived not only five centuries, but also the leap
+        into electronic typesetting.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

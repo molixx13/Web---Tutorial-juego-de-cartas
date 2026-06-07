@@ -1,0 +1,8 @@
+# Ejecutable suelto que no forma parte de la web (supera el limite de GitHub)
+Audios/Antigravity.exe
+*.exe
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

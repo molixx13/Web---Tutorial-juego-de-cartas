@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Tienda (tienda.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (TIENDA activo)
+    2. .tienda-hero   — Hero con título "Tienda" + imagen de fondo
+    3. .tienda-subnav — Subnavegación: JUEGO | Cartas | Fichas | Ofertas
+    4. Sección Cartas  — 3 productos + botones COMPRAR
+    5. Sección Fichas  — 3 productos + botones COMPRAR
+    6. Sección Ofertas — 3 productos + botones COMPRAR
+    7. <footer>
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Tienda</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-tienda
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="https://www.figma.com/api/mcp/asset/709fed35-f489-4443-a794-6ffad1bfad14"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/drive/folders/1aFhP5xda_X0VcE0jvxz1ZZw9O-VDDXZF?usp=drive_link" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img src="https://www.figma.com/api/mcp/asset/d0a17934-c824-4294-9baf-b1ce5fec9df4" alt="Buscar" />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img src="https://www.figma.com/api/mcp/asset/3e64e5b0-0a5e-488f-ac11-7d9508e193a9" alt="Cuenta" />
+      </button>
+      <button aria-label="Carrito">
+        <img src="https://www.figma.com/api/mcp/asset/c3ba4121-0142-469e-92d6-dd1bf4746853" alt="Carrito" />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de la Tienda
+       Fondo gris con imagen (placeholder) y título "Tienda"
+       en tipografía Koulen grande.
+  ══════════════════════════════════════════════════════ -->
+  <section class="tienda-hero" aria-label="Hero tienda">
+    <div>
+      <h1 class="tienda-hero__titulo fade-in">Tienda</h1>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — SUBNAVEGACIÓN DE LA TIENDA
+       Permite filtrar por categoría: JUEGO, Cartas, Fichas, Ofertas.
+       JS activa .activo-subnav en el primero por defecto.
+  ══════════════════════════════════════════════════════ -->
+  <nav class="tienda-subnav" aria-label="Categorías de la tienda">
+    <a href="#seccion-juego"   class="tienda-subnav__link">JUEGO</a>
+    <a href="#seccion-cartas"  class="tienda-subnav__link">Cartas</a>
+    <a href="#seccion-fichas"  class="tienda-subnav__link">Fichas</a>
+    <a href="#seccion-ofertas" class="tienda-subnav__link">Ofertas</a>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — PRODUCTO DESTACADO (Juego completo)
+       Fondo gris de gran altura + botón COMPRAR centrado.
+       (Rectangle 23 del Figma — gran bloque al inicio)
+  ══════════════════════════════════════════════════════ -->
+  <section
+    id="seccion-juego"
+    class="tienda-seccion"
+    aria-label="Juego completo"
+    style="background-color: var(--gris); min-height: 940px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 40px;"
+  >
+    <!-- Imagen del producto (placeholder) -->
+    <div style="flex: 1; display: flex; align-items: center; justify-content: center; width: 100%;">
+      <div style="background-color: rgba(0,0,0,0.1); width: 100%; max-width: 700px; height: 400px; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+        <p style="font-family: var(--font-titulo); font-size: 28px; color: var(--azul-oscuro); letter-spacing: 4px;">[Imagen del juego completo]</p>
+      </div>
+    </div>
+
+    <!-- Banda divisoria (Rectangle 26 del Figma) -->
+    <div style="width: 100%; background-color: var(--azul-oscuro); padding: 16px; text-align: center; margin-bottom: 24px;">
+      <button class="producto-card__btn" style="font-size: clamp(16px, 2vw, 22px);">
+        COMPRAR
+      </button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 4 — CARTAS
+       Encabezado "Cartas" + grid de 3 productos con botones COMPRAR.
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-cartas" class="tienda-seccion" aria-label="Cartas">
+
+    <!-- Encabezado de categoría -->
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">Cartas</h2>
+    </div>
+
+    <!-- Grid de 3 productos -->
+    <div class="productos-grid">
+
+      <!-- Producto 1 -->
+      <div class="producto-card">
+        <!-- Imagen del producto (ícono de card como placeholder) -->
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/a6ca27f6-d609-4254-b75a-f4a1af260ecb"
+          alt="Mazo de cartas - producto 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 1">
+          COMPRAR
+        </button>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/67ab132a-14be-43cc-a580-95bb94699979"
+          alt="Mazo de cartas - producto 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 2">
+          COMPRAR
+        </button>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/994ad71a-57cb-4acc-9ce7-e4332084e795"
+          alt="Mazo de cartas - producto 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar mazo de cartas 3">
+          COMPRAR
+        </button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 5 — FICHAS
+       Misma estructura que Cartas.
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-fichas" class="tienda-seccion" aria-label="Fichas">
+
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">FICHAS</h2>
+    </div>
+
+    <div class="productos-grid">
+
+      <!-- Ficha 1 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/48058872-51bf-4500-90fe-8cf60337fcee"
+          alt="Ficha - producto 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 1">COMPRAR</button>
+      </div>
+
+      <!-- Ficha 2 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/ec58585c-c8d1-49a5-be67-e4c553598ae9"
+          alt="Ficha - producto 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 2">COMPRAR</button>
+      </div>
+
+      <!-- Ficha 3 -->
+      <div class="producto-card">
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/5cf40897-76b6-4870-af61-f0d0df41df03"
+          alt="Ficha - producto 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar ficha 3">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 6 — OFERTAS
+  ══════════════════════════════════════════════════════ -->
+  <section id="seccion-ofertas" class="tienda-seccion" aria-label="Ofertas">
+
+    <div class="tienda-seccion__header">
+      <h2 class="tienda-seccion__nombre">OFERTAS</h2>
+    </div>
+
+    <div class="productos-grid">
+
+      <!-- Oferta 1 -->
+      <div class="producto-card" style="position: relative;">
+        <!-- Badge de descuento -->
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -20%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/9f694f9d-2e93-469d-ba0c-8a01cc8c802e"
+          alt="Oferta - producto 1"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 1">COMPRAR</button>
+      </div>
+
+      <!-- Oferta 2 -->
+      <div class="producto-card" style="position: relative;">
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -15%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/7270418f-33ab-4144-91a0-d498d6bb94a9"
+          alt="Oferta - producto 2"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 2">COMPRAR</button>
+      </div>
+
+      <!-- Oferta 3 -->
+      <div class="producto-card" style="position: relative;">
+        <span style="position: absolute; top: 16px; right: 16px; background-color: var(--amarillo); color: var(--azul-oscuro); font-weight: 900; padding: 6px 12px; border-radius: 4px; z-index: 2; font-size: 14px;">
+          -30%
+        </span>
+        <img
+          class="producto-card__imagen"
+          src="https://www.figma.com/api/mcp/asset/63ad7ad2-74fe-40b7-8eca-16f3d2691a86"
+          alt="Oferta - producto 3"
+        />
+        <button class="producto-card__btn" aria-label="Comprar oferta 3">COMPRAR</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

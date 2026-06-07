@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Culturas (culturas.html)
+  
+  Estructura de secciones:
+    1. <header>       — Navegación (CULTURAS activo)
+    2. .cultura-hero  — Dos paneles: imagen izquierda + fondo crema derecha
+    3. .cultura-nav   — Botones "CONÓCENOS" Nukak / Sikuani
+    4. #nukak         — Contenido detallado de la cultura Nukak
+    5. #sikuani       — Contenido detallado de la cultura Sikuani
+    6. <footer>
+    
+  Nota de color:
+    Los títulos de sección "creencias" y "características" usaban
+    #B2296F → ahora usan --amarillo (#FFDC4A).
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Culturas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- FontAwesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-culturas
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="Fondos/DREAM_FORGE.png"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="MANUAL.pdf" download>MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <i class="fas fa-search"></i>
+      </button>
+      <button aria-label="Mi cuenta">
+        <i class="fas fa-user"></i>
+      </button>
+      <button aria-label="Carrito">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO de Culturas
+       Dos paneles lado a lado:
+         ▸ Izquierda: fondo #FFDC4A (era imagen en Figma) — título CULTURAS
+         ▸ Derecha: fondo crema con imagen/texto
+  ══════════════════════════════════════════════════════ -->
+  <section class="cultura-hero" aria-label="Hero página Culturas">
+
+    <!-- Panel izquierdo: color amarillo de fondo + título grande -->
+    <div class="cultura-hero__panel cultura-hero__panel--izq">
+      <h1 class="cultura-hero__titulo fade-in">CULTURAS</h1>
+    </div>
+
+    <!-- Panel derecho: imagen -->
+    <div class="cultura-hero__panel cultura-hero__panel--der">
+      <img
+        class="cultura-hero__conocenos-img"
+        src="Imagenes/cultura.jpg"
+        alt="Danza y ceremonia tradicional en maloca"
+        width="960"
+        height="640"
+        loading="lazy"
+      />
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — NAVEGACIÓN DE CULTURAS
+       Botones para alternar entre Nukak y Sikuani.
+       JS activa/desactiva la clase "activo-cultura".
+  ══════════════════════════════════════════════════════ -->
+  <nav id="culturas-navegacion" class="cultura-nav cultura-nav--ancla" aria-label="Selección de cultura">
+    <!-- data-cultura apunta al id del bloque de contenido -->
+    <button class="cultura-nav__btn" data-cultura="nukak" aria-controls="nukak">
+      NUKAK
+    </button>
+    <button class="cultura-nav__btn" data-cultura="sikuani" aria-controls="sikuani">
+      SIKUANI
+    </button>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3A — CONTENIDO NUKAK
+       Visible/oculto por JS según el botón seleccionado.
+  ══════════════════════════════════════════════════════ -->
+  <div id="nukak" class="cultura-contenido-bloque" aria-label="Cultura Nukak">
+
+    <!-- Banda con nombre de la cultura -->
+    <div style="background-color: #B2296F; padding: 20px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-titulo); font-size: clamp(40px, 6vw, 96px); letter-spacing: 25px; color: var(--crema);">
+        N U K A K
+      </h2>
+    </div>
+
+    <!-- Imagen principal de la cultura Nukak -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px; text-align: center; min-height: 510px; display: flex; align-items: center; justify-content: center;">
+      <img
+        src="Fondos/Imagen_culturas_nukak.png"
+        alt="Imagen de la cultura Nukak"
+        style="width: 100%; max-width: 635px; height: auto; border-radius: 8px; object-fit: contain;"
+      />
+    </div>
+
+    <!-- Descripción general de la cultura -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px 80px;">
+      <p style="font-size: clamp(14px, 1.5vw, 20px); color: var(--crema); line-height: 1.8; text-align: justify; max-width: 1100px; margin: 0 auto;">
+        Los Nukak (o Nukak-Makú) son un pueblo indígena de Colombia, reconocidos por ser uno de los últimos grupos nómadas contactados en el mundo. Habitan principalmente en las selvas del departamento del Guaviare, entre los ríos Guaviare e Inírida, aunque debido al conflicto armado muchos se encuentran actualmente desplazados en asentamientos precarios cerca de San José del Guaviare.
+      </p>
+    </div>
+
+    <!-- Bloques: Creencias + Características (lado a lado) -->
+    <div class="cultura-bloques animar">
+
+      <!-- Bloque Creencias — fondo claro -->
+      <div class="cultura-bloque cultura-bloque--claro">
+        <!-- Título del bloque: fondo amarillo (era #B2296F) -->
+        <div class="cultura-bloque__titulo animar">CREENCIAS</div>
+
+        <!-- Imagen de creencias Nukak -->
+        <img
+          src="Fondos/Imagen_creencias_cultura.png"
+          alt="Imagen creencias Nukak"
+          style="width: 100%; min-height: 300px; border-radius: 8px; object-fit: cover; margin: 16px 0;"
+        />
+
+        <p class="cultura-bloque__texto">
+          Las creencias de los Nukak se sustentan en una cosmogonía que divide el universo en tres planos: el mundo de arriba, donde habitan los ancestros en luz perpetua; el mundo intermedio, que es la selva donde viven; y el mundo de abajo, poblado por espíritus. Su espiritualidad es profundamente animista, pues consideran que la salud depende de la integridad de un "aura" o energía vital y que ciertos animales, como el venado y la danta, son en realidad las almas de sus parientes fallecidos, lo que prohíbe su consumo. Esta conexión con lo sagrado se manifiesta a través de cantos rituales al atardecer, el uso de pinturas corporales de onoto y una relación de respeto absoluto hacia la selva, la cual no es solo su hogar, sino el escenario donde interactúan constantemente con fuerzas espirituales y seres mitológicos que dieron origen a su pueblo.
+        </p>
+      </div>
+
+      <!-- Bloque Características — fondo oscuro -->
+      <div class="cultura-bloque cultura-bloque--oscuro">
+        <!-- Título del bloque: fondo amarillo (era #B2296F) -->
+        <div class="cultura-bloque__titulo animar">CARACTERÍSTICAS</div>
+
+        <!-- Imagen de características Nukak -->
+        <img
+          src="Fondos/imagen_culturas_caracteristicas.png"
+          alt="Imagen características Nukak"
+          style="width: 100%; min-height: 300px; border-radius: 8px; object-fit: cover; margin: 16px 0;"
+        />
+
+        <p class="cultura-bloque__texto" style="color: var(--crema);">
+          Los Nukak son el último pueblo indígena de Colombia en mantener una tradición nómada y de caza-recolección, habitando en bandas móviles que se desplazan por la selva del Guaviare siguiendo los ciclos de maduración de los frutos. Su organización social es flexible, basada en grupos domésticos que construyen refugios temporales de palma, y su economía depende del conocimiento profundo de la biodiversidad, utilizando herramientas tradicionales como la cerbatana con curare para cazar. Físicamente, destacan por su baja estatura y el uso de pinturas faciales rojas de onoto, mientras que su cultura se distingue por una lengua tonal propia y una relación espiritual con el entorno donde la selva no es solo un recurso, sino un espacio sagrado habitado por los espíritus de sus ancestros.
+        </p>
+      </div>
+    </div>
+  </div><!-- /nukak -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3B — CONTENIDO SIKUANI
+       Oculto por defecto. JS lo muestra al clic en el botón.
+       Misma estructura que Nukak.
+  ══════════════════════════════════════════════════════ -->
+  <div id="sikuani" class="cultura-contenido-bloque" style="display:none;" aria-label="Cultura Sikuani">
+
+    <!-- Banda con nombre de la cultura -->
+    <div style="background-color: var(--amarillo); padding: 20px 40px; text-align: center;">
+      <h2 style="font-family: var(--font-titulo); font-size: clamp(40px, 6vw, 96px); letter-spacing: 25px; color: var(--azul-oscuro);">
+        S I K U A N I
+      </h2>
+    </div>
+
+    <!-- Imagen principal Sikuani -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px; text-align: center; min-height: 510px; display: flex; align-items: center; justify-content: center;">
+      <img
+        src="Fondos/Imagen_culturas 2.png"
+        alt="Imagen de la cultura Sikuani"
+        style="width: 100%; max-width: 635px; height: auto; border-radius: 8px; object-fit: contain;"
+      />
+    </div>
+
+    <!-- Descripción -->
+    <div style="background-color: var(--azul-oscuro); padding: 40px 80px;">
+      <p style="font-size: clamp(14px, 1.5vw, 20px); color: var(--crema); line-height: 1.8; text-align: justify; max-width: 1100px; margin: 0 auto;">
+        Los Sikuani (también conocidos como Guahibo) son uno de los pueblos indígenas más numerosos de la región de la Orinoquía, habitando las extensas sabanas de los departamentos del Vichada, Meta y Casanare en Colombia, así como el estado Apure en Venezuela. Tradicionalmente fueron un pueblo nómada de cazadores y recolectores, pero con el tiempo se han sedentarizado en comunidades agrícolas donde cultivan principalmente la yuca brava, base de su alimentación a través del casabe y la fariña. Su organización social se estructura en clanes patrilineales y su cosmovisión gira en torno a la figura del chamán o dopaitubane, quien actúa como intermediario con el mundo espiritual y sanador mediante el uso ritual de plantas sagradas como el yopo. A pesar de las presiones de la colonización y el conflicto armado, mantienen viva su lengua (perteneciente a la familia Guahibo) y festividades emblemáticas como el Itomo, un ritual de segundo entierro que celebra el tránsito del alma hacia el mundo de los muertos.
+      </p>
+    </div>
+
+    <!-- Bloques: Creencias + Características -->
+    <div class="cultura-bloques">
+
+      <div class="cultura-bloque cultura-bloque--claro">
+        <div class="cultura-bloque__titulo">CREENCIAS</div>
+        <img
+          src="Fondos/Imagen_creencias_cultura.png"
+          alt="Imagen creencias Sikuani"
+          style="width: 100%; min-height: 300px; border-radius: 8px; object-fit: cover; margin: 16px 0;"
+        />
+        <p class="cultura-bloque__texto">
+          La cosmovisión de los Sikuani se fundamenta en un universo estratificado donde el mundo terrenal coexiste con dimensiones espirituales habitadas por seres primordiales y fuerzas de la naturaleza. Su espiritualidad gira en torno al chamanismo, siendo el chamán (dopaitubane) la figura central que media con lo invisible mediante el uso ritual del yopo y el tabaco para diagnosticar enfermedades, asegurar la caza o proteger a la comunidad. Creen que el origen de la humanidad y de sus leyes sociales proviene de héroes culturales míticos como Kúwai, quien enseñó a los hombres el uso de las plantas sagradas y los ritos de paso. Además, su relación con la muerte es profunda y se manifiesta en el ritual del Itomo, una ceremonia de segundo entierro destinada a liberar definitivamente el alma del difunto para que pueda integrarse plenamente al mundo de los espíritus, garantizando así el equilibrio entre los vivos y los ancestros.
+        </p>
+      </div>
+
+      <div class="cultura-bloque cultura-bloque--oscuro">
+        <div class="cultura-bloque__titulo">CARACTERÍSTICAS</div>
+        <img
+          src="Fondos/imagen_culturas_caracteristicas.png"
+          alt="Imagen características Sikuani"
+          style="width: 100%; min-height: 300px; border-radius: 8px; object-fit: cover; margin: 16px 0;"
+        />
+        <p class="cultura-bloque__texto" style="color: var(--crema);">
+          Los Sikuani son un pueblo indígena de gran importancia en los Llanos Orientales de Colombia y Venezuela, caracterizados por una organización social basada en clanes patrilineales y una transición histórica del nomadismo a la sedentarización agrícola. Su economía gira en torno al cultivo de la yuca brava, la cual procesan con técnicas ancestrales para producir casabe y fariña, complementando su dieta con la pesca y la caza estacional en las sabanas. Físicamente, mantienen una identidad cultural robusta expresada en su lengua guahibo y en una estructura de liderazgo donde el capitán de la comunidad y el chamán desempeñan roles fundamentales para el orden social y espiritual. A diferencia de otros grupos amazónicos, los Sikuani han desarrollado una notable capacidad de resistencia y adaptación frente a la colonización, integrando elementos del mercado regional sin perder sus rituales de paso ni su profunda conexión con el territorio de la Orinoquía.
+        </p>
+      </div>
+    </div>
+  </div><!-- /sikuani -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Todos los derechos reservados©️ 2026</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <script>
+    /**
+     * Leer el parámetro ?cultura=nukak/sikuani de la URL
+     * y activar automáticamente la pestaña correspondiente.
+     * Útil cuando se llega desde los paneles del index.html.
+     */
+    (function activarDesdeURL() {
+      const params   = new URLSearchParams(window.location.search);
+      const cultura  = params.get('cultura'); // "nukak" o "sikuani"
+      const btnTarget = document.querySelector('[data-cultura="' + cultura + '"]');
+      if (btnTarget) {
+        btnTarget.click();
+      }
+    })();
+  </script>
+</body>
+</html>

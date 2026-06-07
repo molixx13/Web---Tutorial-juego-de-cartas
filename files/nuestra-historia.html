@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  ECOS: UMBRAL DE LOS ETERNOS — Nuestra Historia (nuestra-historia.html)
+  
+  Estructura de secciones:
+    1. <header>            — Navegación (NUESTRA HISTORIA activo)
+    2. .historia-hero      — Banda oscura con título e intro
+    3. .historia-recorrido — Timeline del proyecto (2025, 2026, próximamente)
+    4. .historia-equipo    — Grid 3×2 de miembros del equipo
+    5. <footer>
+  ============================================================
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ECOS — Nuestra Historia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Koulen&family=Inter:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       HEADER — JS marca "activo" en #nav-historia
+  ══════════════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header__logo">
+      <a href="index.html">
+        <img
+          src="https://www.figma.com/api/mcp/asset/709fed35-f489-4443-a794-6ffad1bfad14"
+          alt="Dream Forge — Logo"
+        />
+      </a>
+    </div>
+
+    <nav class="header__nav" aria-label="Navegación principal">
+      <a id="nav-historia"      class="nav__link" href="nuestra-historia.html">NUESTRA HISTORIA</a>
+      <a id="nav-culturas"      class="nav__link" href="culturas.html">CULTURAS</a>
+      <a id="nav-cartas"        class="nav__link" href="cartas.html">CARTAS</a>
+      <a id="nav-instrucciones" class="nav__link" href="instrucciones.html">JUEGO</a>
+      <a id="nav-manual" class="nav__link" href="https://drive.google.com/drive/folders/1aFhP5xda_X0VcE0jvxz1ZZw9O-VDDXZF?usp=drive_link" target="_blank" rel="noopener noreferrer">MANUAL</a>
+      <a id="nav-tienda"        class="nav__link" href="tienda.html">TIENDA</a>
+    </nav>
+
+    <div class="header__iconos">
+      <button aria-label="Buscar">
+        <img src="https://www.figma.com/api/mcp/asset/d0a17934-c824-4294-9baf-b1ce5fec9df4" alt="Buscar" />
+      </button>
+      <button aria-label="Mi cuenta">
+        <img src="https://www.figma.com/api/mcp/asset/3e64e5b0-0a5e-488f-ac11-7d9508e193a9" alt="Cuenta" />
+      </button>
+      <button aria-label="Carrito">
+        <img src="https://www.figma.com/api/mcp/asset/c3ba4121-0142-469e-92d6-dd1bf4746853" alt="Carrito" />
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 1 — HERO "Nuestra Historia"
+       Fondo azul oscuro. Título + dos párrafos descriptivos.
+       (Rectangle 6 del Figma: fondo azul, altura 525px)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-hero" aria-label="Nuestra historia">
+
+    <h1 class="historia-hero__titulo fade-in">nuestra historia</h1>
+
+    <!-- Párrafo 1 (top) -->
+    <p class="historia-hero__texto animar">
+      Aut inventore ratione eos quia nulla aut vitae dolores qui ullam optio qui
+      maxime laborum ea fugit dolor qui similique architecto? Est accusamus quia
+      cum dolorem necessitatibus aut inventore veritatis eos dicta repudiandae est
+      quod amet in ratione quos rem eaque suscipit?
+    </p>
+
+    <!-- Párrafo 2 (sección intermedia, fondo claro en Figma) -->
+    <p class="historia-hero__texto animar">
+      Ab porro repellendus eum quis voluptates ex odit accusamus non consequatur
+      dolorem id beatae aliquid est illum delectus. A nesciunt officia non nisi
+      suscipit ut voluptas voluptate quo aliquid sint. Rhoncus viverra mattis id
+      mus morbi dignissim cras ridiculus sem.
+    </p>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 2 — NUESTRO RECORRIDO (Timeline)
+       Tres hitos en línea de tiempo vertical:
+         ▸ 2025        (izquierda)
+         ▸ 2026        (derecha)
+         ▸ PRÓXIMAMENTE (izquierda)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-recorrido" aria-label="Recorrido del proyecto">
+
+    <h2 class="historia-recorrido__titulo fade-in">nuestro recorrido</h2>
+
+    <!-- Timeline vertical -->
+    <div class="timeline" role="list">
+
+      <!-- Hito 2025 -->
+      <div class="timeline__item" role="listitem">
+        <div></div><!-- columna vacía derecha -->
+        <div class="timeline__nodo" aria-hidden="true"></div>
+        <div class="timeline__contenido derecha animar">
+          <!-- Etiqueta del año -->
+          <div class="timeline__año">2025</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Inicio del desarrollo del proyecto "ECOS: Umbral de los Eternos".
+            Investigación de las culturas Nukak y Sikuani. Diseño de las primeras
+            cartas y mecánicas de juego.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hito 2026 -->
+      <div class="timeline__item" role="listitem">
+        <div class="timeline__contenido izquierda animar">
+          <div class="timeline__año">2026</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Lanzamiento de la versión beta del juego. Pruebas con grupos
+            focales universitarios. Ajustes de balanceo y mecánicas avanzadas.
+          </p>
+        </div>
+        <div class="timeline__nodo" aria-hidden="true"></div>
+        <div></div><!-- columna vacía -->
+      </div>
+
+      <!-- Hito Próximamente -->
+      <div class="timeline__item" role="listitem">
+        <div></div>
+        <div class="timeline__nodo" aria-hidden="true" style="background-color: var(--amarillo);"></div>
+        <div class="timeline__contenido derecha animar">
+          <div class="timeline__año" style="background-color: var(--amarillo); color: var(--azul-oscuro);">PRÓXIMAMENTE</div>
+          <p style="font-size: 16px; line-height: 1.6; margin-top: 12px; color: var(--azul-oscuro);">
+            Versión comercial del juego con ilustraciones profesionales y expansiones
+            temáticas dedicadas a otras culturas indígenas de Colombia.
+          </p>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SECCIÓN 3 — NUESTRO EQUIPO
+       Grid de 3 columnas × 2 filas (6 miembros del equipo).
+       Avatares circulares con iconos de redes sociales.
+       (Figma muestra image 8–13 para fotos y social icons)
+  ══════════════════════════════════════════════════════ -->
+  <section class="historia-equipo" aria-label="Nuestro equipo">
+
+    <h2 class="historia-equipo__titulo fade-in">nuestro equipo</h2>
+
+    <!-- Fila 1 de miembros -->
+    <div class="equipo-grid">
+
+      <!-- Miembro 1 -->
+      <div class="equipo__miembro animar">
+        <!-- Avatar circular (placeholder gris — reemplazar con foto real) -->
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+          aria-label="Foto del integrante"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <!-- Iconos de redes sociales (placeholder) -->
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 2 -->
+      <div class="equipo__miembro animar">
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 3 -->
+      <div class="equipo__miembro animar">
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fila 2 de miembros -->
+    <div class="equipo-grid" style="margin-top: 40px;">
+
+      <!-- Miembro 4 -->
+      <div class="equipo__miembro animar">
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 5 -->
+      <div class="equipo__miembro animar">
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+
+      <!-- Miembro 6 -->
+      <div class="equipo__miembro animar">
+        <div
+          class="equipo__avatar"
+          style="background-color: var(--gris); border-radius: 50%; display: flex; align-items: center; justify-content: center;"
+        >
+          <span style="font-size: 32px; color: var(--azul-oscuro);">👤</span>
+        </div>
+        <p class="equipo__nombre">nombre</p>
+        <p class="equipo__cargo">cargo</p>
+        <div style="display: flex; gap: 8px; margin-top: 8px;">
+          <div style="width: 32px; height: 32px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 26px; height: 26px; background: var(--gris); border-radius: 50%;"></div>
+          <div style="width: 22px; height: 22px; background: var(--gris); border-radius: 50%;"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <a href="#" class="footer__link">Términos y condiciones del portal web</a>
+    <a href="#" class="footer__link">Política de Tratamiento para Protección de Datos Personales</a>
+    <a href="#" class="footer__link">Política de seguridad y privacidad de la información</a>
+    <a href="#" class="footer__link">Derechos de autor y/o autorización de uso sobre contenidos</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
