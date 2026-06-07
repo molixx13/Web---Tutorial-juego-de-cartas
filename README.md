@@ -85,10 +85,3 @@ O, si usas VS Code, puedes utilizar la extensión **Live Server**.
 - CSS3
 - JavaScript (vanilla)
 
----
-
-## 📄 Créditos
-
-Proyecto desarrollado por **Ramyx**.
-
-Juego inspirado en las culturas indígenas colombianas Nukak y Sikuani.
